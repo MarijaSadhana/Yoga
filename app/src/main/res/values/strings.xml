@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Јога</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_asana">Асана</string>
+    <string name="nav_pranayama">Пранајама</string>
+    <string name="nav_meditation">Медитација</string>
+    <string name="nav_programs">Програми</string>
+    <string name="nav_news">Вести</string>
+    <string name="nav_settings">Прилагодувања</string>
+
+    <string name="beginners">Почетни</string>
+    <string name="intermediate">Средни</string>
+    <string name="advanced">Напредни</string>
+
+    <string name="btn_start">Активирај аларм</string>
+    <string name="btn_stop">Деактивирај аларм</string>
+
+</resources>

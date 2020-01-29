@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/mainColorGray"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/lotus_nav_cover"/>
+
+    </LinearLayout>
+
+    <View style="@style/Divider"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout_asana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:clickable="true"
+                android:background="@drawable/select_background_color">
+
+                <ImageView
+                    android:id="@+id/asanaID"
+                    android:layout_width="@dimen/menu_image_size"
+                    android:layout_height="@dimen/menu_image_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/asana_nav_icon"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_asana"
+                    style="@style/MenuItemText"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_pranayama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:background="@drawable/select_background_color"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_image_size"
+                    android:layout_height="@dimen/menu_image_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/pramayama_nav_icon"
+                    android:id="@+id/pranayamaID"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_pranayama"
+                    style="@style/MenuItemText"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_meditation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:clickable="true"
+                android:background="@drawable/select_background_color">
+
+                <ImageView
+                    android:id="@+id/meditationID"
+                    android:layout_width="@dimen/menu_image_size"
+                    android:layout_height="@dimen/menu_image_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/meditation_nav_icon"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_meditation"
+                    style="@style/MenuItemText"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_programs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:clickable="true"
+                android:background="@drawable/select_background_color">
+
+                <ImageView
+                    android:id="@+id/programsID"
+                    android:layout_width="@dimen/menu_image_size"
+                    android:layout_height="@dimen/menu_image_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/programs_nav_icon"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_programs"
+                    style="@style/MenuItemText"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:clickable="true"
+                android:background="@drawable/select_background_color">
+
+                <ImageView
+                    android:id="@+id/newsID"
+                    android:layout_width="@dimen/menu_image_size"
+                    android:layout_height="@dimen/menu_image_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/news_nav_icon"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_news"
+                    style="@style/MenuItemText"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:clickable="true"
+                android:background="@drawable/select_background_color">
+
+                <ImageView
+                    android:id="@+id/settingsID"
+                    android:layout_width="@dimen/menu_image_size"
+                    android:layout_height="@dimen/menu_image_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/settings_nav_icon"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_settings"
+                    style="@style/MenuItemText"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

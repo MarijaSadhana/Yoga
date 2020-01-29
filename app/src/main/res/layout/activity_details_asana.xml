@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.DetailsAsana">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/asana_cover_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/ustrasana"/>
+
+            <ImageView
+                android:id="@+id/backArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_arrow"
+                android:layout_margin="20dp"
+                android:elevation="5dp"
+                android:onClick="onBackClick"
+                android:foreground="?attr/selectableItemBackground"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/asana_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/mainColorGray"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Наслов"/>
+
+        <TextView
+            android:id="@+id/asana_sanskrit_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/mainColorGray"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:text="Санскрит наслов"/>
+
+        <TextView
+            android:id="@+id/asana_details_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/mainColorGray"
+            android:textSize="14sp"
+            android:paddingTop="10dp"
+            android:text="кхсалгхлиаухрилксогоисјхогисочихгосихгчоисхихгиуахрбливухрб"/>
+
+    </LinearLayout>
+</ScrollView>

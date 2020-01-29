@@ -1,0 +1,49 @@
+{"numberOfItems": 5,
+  "pranayamas": [
+    {
+      "name": "Комплетно јогиско дишење",
+      "sanskritName": "",
+      "details": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
+      "images": "full_yoga_breath",
+      "video": "full_breath_video"
+    },
+    {
+      "name": "Наизменично дишење низ ноздрите",
+      "sanskritName": "Nadi Shodana",
+      "details": "Комплетно јогиско дишење како прамајама техника",
+      "images": "nadi_shodana",
+      "video": "nadi_shodan_video"
+    },
+    {
+      "name": "Океанско дишење",
+      "sanskritName": "Ujjayi",
+      "details": "Комплетно јогиско дишење како прамајама техника",
+      "images": "ujjayi",
+      "video": "ujjayi_video"
+
+    },
+    {
+      "name": "Светол череп",
+      "sanskritName": "Kapalbhati",
+      "details": "Комплетно јогиско дишење како прамајама техника",
+      "images": "kapalbhati",
+      "video": "kapalbhati_video"
+    },
+    {
+      "name": "Брмчење на пчела",
+      "sanskritName": "Bhramari",
+      "details": "Комплетно јогиско дишење како прамајама техника",
+      "images": "bhramari",
+      "video": "bhramari_video"
+    },
+    {
+      "name": "Ковачки мев",
+      "sanskritName": "Bhastrika",
+      "details": "Комплетно јогиско дишење како прамајама техника",
+      "images": "bhastrika",
+      "video": "bhastrika_video"
+    }
+
+
+]
+}

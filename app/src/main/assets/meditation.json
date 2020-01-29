@@ -1,0 +1,25 @@
+{"numberOfItems": 5,
+  "meditations": [
+    {
+      "title": "Медитација 1",
+      "image": "meditation1"
+    },
+    {
+      "title": "Медитација 2",
+      "image": "meditation2"
+    },
+    {
+      "title": "Медитација 3",
+      "image": "meditation3"
+    },
+    {
+      "title": "Медитација 4",
+      "image": "meditation4"
+    },
+    {
+      "title": "Медитација 5",
+      "image": "meditation5"
+    }
+
+  ]
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mainColorPurple">#CE49F1</color>
+    <color name="mainColorGray">#68858181</color>
+    <color name="menuItemColor">#000000</color>
+    <color name="backgroundWhite">#ffffff</color>
+    <color name="shadowItemColor">#46000000</color>
+
+    <color name="textColorPurple">#CE49F1</color>
+    <color name="textColorGray">#E1858181</color>
+
+    <color name="grey">#68858181</color>
+    <color name="purple">#CE49F1</color>
+    <color name="white">#ffffff</color>
+</resources>

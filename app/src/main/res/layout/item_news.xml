@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/news_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/card_margin_bottom"
+    android:layout_marginTop="@dimen/card_margin_top"
+    android:layout_marginRight="@dimen/card_margin_right"
+    android:layout_marginLeft="@dimen/card_margin_left"
+    app:cardElevation="@dimen/card_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    android:background="@color/backgroundWhite"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:outlineAmbientShadowColor="@color/shadowItemColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/web_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="18sp"
+            android:textColor="@color/textColorGray"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/web_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="http://www.yoga.com"
+            android:textSize="14sp"
+            android:textColor="@color/textColorGray"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/pillar_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pillar name"
+            android:textColor="@color/textColorGray"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/web_publication_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="21.01.2020"
+            android:textColor="@color/textColorGray"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
