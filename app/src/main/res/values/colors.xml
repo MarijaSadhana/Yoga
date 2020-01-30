@@ -8,6 +8,8 @@
 
     <color name="textColorPurple">#CE49F1</color>
     <color name="textColorGray">#E1858181</color>
+    <color name="textColorWhite">#ffffff</color>
+    <color name="textColorBlack">#000000</color>
 
     <color name="grey">#68858181</color>
     <color name="purple">#CE49F1</color>
