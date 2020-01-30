@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +63,7 @@ public class PranayamaFragment extends Fragment implements OnItemListener {
         PranayamaResponse pranayamaResponse = gson.fromJson(json, PranayamaResponse.class);
         pranayamas = pranayamaResponse.getPranayamas();
 
-        adapter = new PranayamaAdapter(getActivity(), pranayamas, this);
+        adapter = new PranayamaAdapter(getActivity(), pranayamas, (OnItemListener) this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -87,12 +86,7 @@ public class PranayamaFragment extends Fragment implements OnItemListener {
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(getActivity(), DetailsPranayama.class);
-        intent.putExtra("Pranayama", (Parcelable) pranayamas.get(position));
+        intent.putExtra("Pranayama", pranayamas.get(position));
         startActivity(intent);
-    }
-
-    @Override
-    public void onSeeAllClick(int sectionType, int asnaCategory) {
-
     }
 }

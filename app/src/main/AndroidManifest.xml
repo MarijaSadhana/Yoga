@@ -3,14 +3,15 @@
     package="com.example.yoga">
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@drawable/logo_vector"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/logo_vector"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragments.WebNews"></activity>
+        <activity android:name=".activity.DetailProgram"></activity>
+        <activity android:name=".fragments.WebNews" />
         <activity android:name=".activity.SeeAllAsanas" />
         <activity android:name=".activity.SetAlarm" />
         <activity android:name=".activity.AboutUsActivity" />
@@ -34,9 +35,8 @@
 
         <receiver android:name=".activity.AlarmReceiver" />
     </application>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

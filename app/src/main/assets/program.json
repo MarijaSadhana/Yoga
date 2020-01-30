@@ -1,0 +1,24 @@
+{"numberOfItems": 5,
+  "programs": [
+    {
+      "programTitle": "Програма 1",
+      "programImage": "program1"
+    },
+    {
+      "programTitle": "Програма 2",
+      "programImage": "program2"
+    },
+    {
+      "programTitle": "Програма 3",
+      "programImage": "program3"
+    },
+    {
+      "programTitle": "Програма 4",
+      "programImage": "program4"
+    },
+    {
+      "programTitle": "Програма 5",
+      "programImage": "program5"
+    }
+  ]
+}

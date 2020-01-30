@@ -19,16 +19,10 @@ import android.widget.ProgressBar;
 
 import com.example.yoga.R;
 import com.example.yoga.activity.DetailsAsana;
-import com.example.yoga.activity.DetailsMeditation;
-import com.example.yoga.activity.SeeAllAsanas;
 import com.example.yoga.adapter.AsanaAdapter;
-import com.example.yoga.adapter.MeditationAdapter;
-import com.example.yoga.common.Constants;
 import com.example.yoga.interfaces.OnItemListener;
 import com.example.yoga.model.Asana;
 import com.example.yoga.model.AsanaResponse;
-import com.example.yoga.model.Meditation;
-import com.example.yoga.model.MeditationResponse;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -97,11 +91,6 @@ public class AsanaFragment extends Fragment implements OnItemListener {
         Intent intent = new Intent(getActivity(), DetailsAsana.class);
         intent.putExtra("Asana", (Parcelable) asanas.get(position));
         startActivity(intent);
-    }
-
-    @Override
-    public void onSeeAllClick(int sectionType, int asnaCategory) {
-
     }
 
 }

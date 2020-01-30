@@ -95,9 +95,4 @@ public class MeditationFragment extends Fragment implements OnItemListener {
         startActivity(intent);
         }
 
-    @Override
-    public void onSeeAllClick(int sectionType, int asnaCategory) {
-
-    }
-
-}
+   }

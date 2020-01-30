@@ -7,29 +7,25 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yoga.R;
-import com.example.yoga.fragments.NewsFragment;
-import com.example.yoga.interfaces.OnItemListener;
-import com.example.yoga.model.News;
-import com.example.yoga.model.NewsResponse;
+import com.example.yoga.interfaces.OnNewsClickListener;
+import com.example.yoga.model.Result;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
-    List<News> newsList;
-    OnItemListener onItemListener;
-    Context context;
+    ArrayList<Result> results;
     LayoutInflater inflater;
+    Context context;
+    OnNewsClickListener onNewsClickListener;
 
-    public NewsAdapter(ArrayList<News> newsList, OnItemListener onItemListener, Context context) {
-        this.newsList = newsList;
-        this.onItemListener = onItemListener;
+    public NewsAdapter(Context context, ArrayList<Result> results, OnNewsClickListener onNewsClickListener) {
         this.context = context;
+        this.results = results;
+        this.onNewsClickListener = onNewsClickListener;
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -41,36 +37,36 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsAdapter.NewsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
 
-        News news = newsList.get(position);
-        holder.webTitle.setText(news.getWebTitle());
-        holder.webUrl.setText(news.getWebUrl());
-        holder.pillarName.setText(news.getPillarName());
-        holder.publicationDate.setText(news.getPublicationDate());
+        Result result = results.get(position);
+        holder.webTitle.setText(result.getWebTitle());
+        holder.webUrl.setText(result.getWebUrl());
+        holder.pillarName.setText(result.getPillarName());
+        holder.webPublicationDate.setText(result.getWebPublicationDate());
     }
 
     @Override
     public int getItemCount() {
-        return newsList.size();
+        return results.size();
     }
 
-    public class NewsViewHolder extends RecyclerView.ViewHolder{
+    public class NewsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView webTitle, webUrl, pillarName, publicationDate;
+        TextView webTitle, webUrl, pillarName, webPublicationDate;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             webTitle = itemView.findViewById(R.id.web_title);
             webUrl = itemView.findViewById(R.id.web_url);
             pillarName = itemView.findViewById(R.id.pillar_name);
-            publicationDate = itemView.findViewById(R.id.web_publication_date);
+            webPublicationDate = itemView.findViewById(R.id.web_publication_date);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (onItemListener != null){
-                        onItemListener.onItemClick(getAdapterPosition());
+                    if (onNewsClickListener != null) {
+                        onNewsClickListener.onNewsClick(getAdapterPosition());
                     }
                 }
             });
