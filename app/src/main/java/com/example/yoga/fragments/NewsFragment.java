@@ -61,13 +61,14 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         gson = new Gson();
+        progressBar = view.findViewById(R.id.progressBar);
         recyclerView = view.findViewById(R.id.recycler_view_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getActivity(), news, this);
         recyclerView.setAdapter(newsAdapter);
 
         OkHttpClient client = new OkHttpClient();
-        String url = "https://content.guardianapis.com/search?q=yoga%20AND&20meditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
+        String url = "https://content.guardianapis.com/search?page-size=10&q=yoga%20AND&20meditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -80,18 +81,12 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                 if (response.isSuccessful()){
                     String jsonString = response.body().string();
                     NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
-                    Log.d(TAG, "Total articles => " + String.valueOf(newsResponse.getResponse().getTotal()));
-                    Log.d(TAG, "current page => " + String.valueOf(newsResponse.getResponse().currentPage + " of pages " + newsResponse.getResponse().pages));
-                    Log.d(TAG, "results => " + String.valueOf(newsResponse.getResponse().getResults()));
-                    //newsResponse.setResponse(response);
-//                    news.add(newsResponse);
-
                     for (int i=0 ; i < newsResponse.getResponse().getPageSize(); i++)
                         {
                             news.add(i,newsResponse.getResponse().getResults().get(i));
                         }
 
-                    if (getActivity() != null) {
+                   if (getActivity() != null) {
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
