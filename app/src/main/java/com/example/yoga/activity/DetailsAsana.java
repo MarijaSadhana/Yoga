@@ -8,9 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.yoga.R;
-import com.example.yoga.model.Asana;
-import com.example.yoga.model.AsanaResponse;
-import com.example.yoga.model.Pranayama;
+import com.example.yoga.model.Asanas;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -21,7 +19,7 @@ public class DetailsAsana extends AppCompatActivity {
 
     ImageView coverImage, backArrow;
     TextView asanaTitle, asanaSanskritTitle, asanaDetails;
-    ArrayList<Asana> asanas = new ArrayList<>();
+    ArrayList<Asanas> asanas = new ArrayList<>();
     Gson gson;
 
     @Override

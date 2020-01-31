@@ -35,7 +35,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Програма"
-            android:textColor="@color/textColorBlack"
+            android:textColor="@color/textColorGray"
             android:gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"

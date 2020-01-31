@@ -48,13 +48,13 @@ public class SetAlarm extends AppCompatActivity {
             public void onClick(View view) {
                 textView2.setText("");
                 Bundle bundle = new Bundle();
-                bundle.putInt(Constants.HOUR, timeHour);
-                bundle.putInt(Constants.MINUTE, timeMinute);
+                bundle.putInt(Constants.AlarmStrings.HOUR, timeHour);
+                bundle.putInt(Constants.AlarmStrings.MINUTE, timeMinute);
                 AlarmDialogFragment fragment = new AlarmDialogFragment(new MyHandler());
                 fragment.setArguments(bundle);
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
-                transaction.add(fragment, Constants.TIME_PICKER);
+                transaction.add(fragment, Constants.AlarmStrings.TIME_PICKER);
                 transaction.commit();
             }
         };
@@ -74,8 +74,8 @@ public class SetAlarm extends AppCompatActivity {
         @Override
         public void handleMessage (Message msg){
             Bundle bundle = msg.getData();
-            timeHour = bundle.getInt(Constants.HOUR);
-            timeMinute = bundle.getInt(Constants.MINUTE);
+            timeHour = bundle.getInt(Constants.AlarmStrings.HOUR);
+            timeMinute = bundle.getInt(Constants.AlarmStrings.MINUTE);
             textView1.setText(timeHour + ":" + timeMinute);
             setAlarm();
         }

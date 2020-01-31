@@ -1,80 +1,80 @@
-{"numberOfItems": 8,
+{"numberOfItems": 11,
   "asanas": [
     {
-      "name": "Обратна положба",
+      "asanaName": "Обратна положба",
       "sanskritName": "Viparita Karani",
-      "details": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "images": "viparita_karani",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
+      "asanaImages": "viparita_karani",
       "asanaCategory": "beginner"
     },
     {
-      "name": "Триаголник",
+      "asanaName": "Триаголник",
       "sanskritName": "Trikonasana",
-      "details": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "images": "trikonasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
+      "asanaImages": "trikonasana",
       "asanaCategory": "beginner"
     },
     {
-      "name": "Чамец",
+      "asanaName": "Чамец",
       "sanskritName": "Naukasana",
-      "details": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "images": "naukasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
+      "asanaImages": "naukasana",
       "asanaCategory": "beginner"
     },
     {
-      "name": "Вертикална штипалка",
+      "asanaName": "Вертикална штипалка",
       "sanskritName": "Uttanasana",
-      "details": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "images": "uttanasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
+      "asanaImages": "uttanasana",
       "asanaCategory": "beginner"
     },
     {
-      "name": "Свеќа",
+      "asanaName": "Свеќа",
       "sanskritName": "Sarvangasana",
-      "details": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "images": "sarvangasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
+      "asanaImages": "sarvangasana",
       "asanaCategory": "intermediate"
     },
     {
-      "name": "Камила",
+      "asanaName": "Камила",
       "sanskritName": "Ustrasana",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "ustrasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "asanaImages": "ustrasana",
       "asanaCategory": "advanced"
     },
     {
-      "name": "Лесна седечка положба со торзија",
+      "asanaName": "Лесна седечка положба со торзија",
       "sanskritName": "Parivrtta Sukhasana",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "parivrtta_sukhasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "asanaImages": "parivrtta_sukhasana",
       "asanaCategory": "beginner"
     },
     {
-      "name": "Воин 1",
+      "asanaName": "Воин 1",
       "sanskritName": "Virasana 1",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "virasana1",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "asanaImages": "virasana1",
       "asanaCategory": "intermediate"
     },
     {
-      "name": "Положба на поздрав",
+      "asanaName": "Положба на поздрав",
       "sanskritName": "Namaskarasana",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "namaskarasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "asanaImages": "namaskarasana",
       "asanaCategory": "beginner"
     },
     {
-      "name": "Кобра",
+      "asanaName": "Кобра",
       "sanskritName": "Bhujangasana",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "bhujangasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "asanaImages": "bhujangasana",
       "asanaCategory": "beginner"
     },
     {
-      "name": "Мачка",
+      "asanaName": "Мачка",
       "sanskritName": "Marjariasana",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "marjariasana",
+      "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "asanaImages": "marjariasana",
       "asanaCategory": "beginner"
     }
   ]

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.yoga.R;
+import com.example.yoga.common.Constants;
 import com.example.yoga.fragments.AsanaFragment;
 import com.example.yoga.fragments.MeditationFragment;
 import com.example.yoga.fragments.NewsFragment;

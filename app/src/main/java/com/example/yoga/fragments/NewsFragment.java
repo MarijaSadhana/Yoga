@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -79,9 +80,17 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                 if (response.isSuccessful()){
                     String jsonString = response.body().string();
                     NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
-                    Log.d(TAG, String.valueOf(newsResponse.getResponse()));
-//                    newsResponse.setResponse(response);
-                    news.add(newsResponse);
+                    Log.d(TAG, "Total articles => " + String.valueOf(newsResponse.getResponse().getTotal()));
+                    Log.d(TAG, "current page => " + String.valueOf(newsResponse.getResponse().currentPage + " of pages " + newsResponse.getResponse().pages));
+                    Log.d(TAG, "results => " + String.valueOf(newsResponse.getResponse().getResults()));
+                    //newsResponse.setResponse(response);
+//                    news.add(newsResponse);
+
+                    for (int i=0 ; i < newsResponse.getResponse().getPageSize(); i++)
+                        {
+                            news.add(i,newsResponse.getResponse().getResults().get(i));
+                        }
+
                     if (getActivity() != null) {
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
@@ -91,6 +100,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                             }
                         });
                     }
+
                 }
             }
         });
