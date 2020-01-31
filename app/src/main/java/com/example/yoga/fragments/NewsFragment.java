@@ -3,9 +3,11 @@ package com.example.yoga.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,9 +18,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.yoga.R;
 import com.example.yoga.adapter.NewsAdapter;
 import com.example.yoga.interfaces.OnNewsClickListener;
+import com.example.yoga.model.NewsResponse;
+import com.google.gson.Gson;
 
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.ArrayList;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class NewsFragment extends Fragment implements OnNewsClickListener {
 
@@ -27,6 +40,8 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
     RecyclerView recyclerView;
     NewsAdapter newsAdapter;
     ArrayList news = new ArrayList<>();
+    Gson gson;
+    ProgressBar progressBar;
 
     public NewsFragment() {}
 
@@ -44,11 +59,41 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        gson = new Gson();
         recyclerView = view.findViewById(R.id.recycler_view_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getActivity(), news, this);
         recyclerView.setAdapter(newsAdapter);
+
+        OkHttpClient client = new OkHttpClient();
+        String url = "https://content.guardianapis.com/search?q=yoga%20AND&20meditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
+        Request request = new Request.Builder().url(url).build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                if (response.isSuccessful()){
+                    String jsonString = response.body().string();
+                    NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
+                    Log.d(TAG, String.valueOf(newsResponse.getResponse()));
+//                    newsResponse.setResponse(response);
+                    news.add(newsResponse);
+                    if (getActivity() != null) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                newsAdapter.notifyDataSetChanged();
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        });
+                    }
+                }
+            }
+        });
     }
 
     @Override
