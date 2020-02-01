@@ -18,5 +18,6 @@
 
     <string name="btn_start">Активирај аларм</string>
     <string name="btn_stop">Деактивирај аларм</string>
+    <string name="menu_refresh">menu_refresh</string>
 
 </resources>
