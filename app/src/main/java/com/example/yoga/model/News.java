@@ -5,18 +5,16 @@ import android.os.Parcelable;
 
 public class News implements Parcelable {
 
-    String webTitle, webUrl, pillarName, webPublicationDate;
+    String webTitle, pillarName, webPublicationDate;
 
-    public News(String webTitle, String webUrl, String pillarName, String webPublicationDate) {
+    public News(String webTitle, String pillarName, String webPublicationDate) {
         this.webTitle = webTitle;
-        this.webUrl = webUrl;
         this.pillarName = pillarName;
         this.webPublicationDate = webPublicationDate;
     }
 
     protected News(Parcel in) {
         webTitle = in.readString();
-        webUrl = in.readString();
         pillarName = in.readString();
         webPublicationDate = in.readString();
     }
@@ -39,14 +37,6 @@ public class News implements Parcelable {
 
     public void setWebTitle(String webTitle) {
         this.webTitle = webTitle;
-    }
-
-    public String getWebUrl() {
-        return webUrl;
-    }
-
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
     }
 
     public String getPillarName() {
@@ -73,7 +63,6 @@ public class News implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(webTitle);
-        dest.writeString(webUrl);
         dest.writeString(pillarName);
         dest.writeString(webPublicationDate);
     }

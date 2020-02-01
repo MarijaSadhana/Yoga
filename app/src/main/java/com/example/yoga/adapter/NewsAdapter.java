@@ -41,7 +41,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         Result result = results.get(position);
         holder.webTitle.setText(result.getWebTitle());
-        holder.webUrl.setText(result.getWebUrl());
         holder.pillarName.setText(result.getPillarName());
         holder.webPublicationDate.setText(result.getWebPublicationDate());
     }
@@ -53,12 +52,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView webTitle, webUrl, pillarName, webPublicationDate;
+        TextView webTitle, pillarName, webPublicationDate;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             webTitle = itemView.findViewById(R.id.web_title);
-            webUrl = itemView.findViewById(R.id.web_url);
             pillarName = itemView.findViewById(R.id.pillar_name);
             webPublicationDate = itemView.findViewById(R.id.web_publication_date);
 

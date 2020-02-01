@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,6 +42,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
     public static final String TAG = "NEWSTAG";
 
     RecyclerView recyclerView;
+    TextView category, date;
     NewsAdapter newsAdapter;
     ArrayList news = new ArrayList<>();
     Gson gson;
@@ -64,6 +66,8 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         gson = new Gson();
+        category = view.findViewById(R.id.textCategory);
+        date = view.findViewById(R.id.textDatePublished);
         progressBar = view.findViewById(R.id.progressBar);
         recyclerView = view.findViewById(R.id.recycler_view_news);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
