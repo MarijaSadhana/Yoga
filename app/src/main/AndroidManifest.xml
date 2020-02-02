@@ -13,7 +13,7 @@
         <activity android:name=".activity.DetailProgram"></activity>
         <activity android:name=".fragments.WebNews" />
         <activity android:name=".activity.SeeAllAsanas" />
-        <activity android:name=".activity.SetAlarm" />
+        <activity android:name=".activity.SetYogaAlarm" />
         <activity android:name=".activity.AboutUsActivity" />
         <activity android:name=".activity.DetailsAsana" />
         <activity android:name=".activity.DetailsMeditation" />

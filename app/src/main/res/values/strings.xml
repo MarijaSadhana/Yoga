@@ -19,5 +19,18 @@
     <string name="btn_start">Активирај аларм</string>
     <string name="btn_stop">Деактивирај аларм</string>
     <string name="menu_refresh">menu_refresh</string>
+    
+    <string name="titleSadhana">Јога центар \nСадана</string>
+    <string name="decriptionAboutSadhana">Јога центар САДАНА е основан на 13.08.2014 година. Во Центарот се одржуваат курсеви од различни стилови на јога - интегрална, јин, винјаса, аштанга, јога за бремени жени и јога за деца. Курсевите ги одржуваат едуцирани јога инструктори, сертифицирани во Садана и други реномирани школи.
+    \n\nЈога центар Садана е сертифицирана школа за обука на нови инструктори по јога, од страна на Yoga Alliance International од Индија.
+    \n\nОсновач на Јога центар Садана е Марија, сертифициран јога учител од страна на Yoga Alliance International од Индија (Certified Master Yoga Teacher 500 Hours). Марија е посветена на јогата од 2004 година,
+        а од 2006 година ја започнува својата обука за јога инструктор. Одржува курсеви по Интегрална и Јин јога со групи или индивидуалци од различни нивоа. </string>
+    <string name="alarm">Аларм</string>
+    <string name="share">Сподели</string>
+    <string name="contact">Контакт</string>
+    <string name="aboutUs">За нас</string>
+    <string name="textCategory">Category:</string>
+    <string name="date_published">Date published:</string>
+
 
 </resources>

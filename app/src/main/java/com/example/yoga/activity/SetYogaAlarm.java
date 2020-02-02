@@ -20,7 +20,7 @@ import com.example.yoga.fragments.AlarmDialogFragment;
 
 import java.util.Calendar;
 
-public class SetAlarm extends AppCompatActivity {
+public class SetYogaAlarm extends AppCompatActivity {
 
     private static int timeHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
     private static int timeMinute = Calendar.getInstance().get(Calendar.MINUTE);
@@ -41,8 +41,8 @@ public class SetAlarm extends AppCompatActivity {
         textView2 = (TextView)findViewById(R.id.msg2);
 
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent myIntent = new Intent(SetAlarm.this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(SetAlarm.this, 0, myIntent, 0);
+        Intent myIntent = new Intent(SetYogaAlarm.this, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(SetYogaAlarm.this, 0, myIntent, 0);
 
         View.OnClickListener listener1 = new View.OnClickListener() {
             public void onClick(View view) {

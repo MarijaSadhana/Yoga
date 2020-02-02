@@ -14,15 +14,15 @@
         android:paddingTop="20dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/aboutUs_cover"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="10dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:src="@drawable/logo_vector"/>
@@ -32,19 +32,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_back_arrow"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:onClick="onBackClick"
                 android:foreground="?attr/selectableItemBackground"/>
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/aboutUs_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Јога центар
-                САДАНА"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
+                android:text="@string/titleSadhana"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="40dp"
                 android:paddingTop="40dp"
                 android:textSize="22sp"
                 android:gravity="center"
@@ -52,21 +54,19 @@
                 android:textStyle="bold"
                 android:layout_toRightOf="@+id/aboutUs_cover"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/aboutUs_details"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
-        android:text="  Јога центар Садана е основан во 2014 година во Скопје."
-        android:textColor="@color/textColorGray"
-        android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/aboutUs_details"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="40dp"
+            android:text="@string/decriptionAboutSadhana"
+            android:textColor="@color/textColorGray"
+            android:textSize="16sp"/>
 
 </LinearLayout>

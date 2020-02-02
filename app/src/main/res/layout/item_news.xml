@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/card_margin_bottom"
     android:layout_marginTop="@dimen/card_margin_top"
-    android:layout_marginRight="@dimen/card_margin_right"
-    android:layout_marginLeft="@dimen/card_margin_left"
+    android:layout_marginEnd="@dimen/card_margin_right"
+    android:layout_marginStart="@dimen/card_margin_left"
     app:cardElevation="@dimen/card_elevation"
     app:cardCornerRadius="@dimen/card_corner_radius"
     android:background="@color/backgroundWhite"
@@ -23,13 +23,12 @@
             android:id="@+id/web_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Наслов"
             android:textSize="18sp"
             android:textColor="@color/textColorPurple"
             android:textStyle="bold"
             android:paddingTop="@dimen/card_padding_top"
-            android:paddingLeft="@dimen/card_padding_left"
-            android:paddingRight="@dimen/card_padding_right"
+            android:paddingStart="@dimen/card_padding_left"
+            android:paddingEnd="@dimen/card_padding_right"
             android:paddingBottom="@dimen/card_padding_bottom"/>
 
         <LinearLayout
@@ -41,22 +40,19 @@
                 android:id="@+id/textCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category:"
+                android:text="@string/textCategory"
                 android:textColor="@color/textColorGray"
                 android:textSize="12sp"
-                android:paddingLeft="@dimen/card_padding_left"
-                android:paddingRight="@dimen/card_padding_right"/>
+                android:paddingStart="@dimen/card_padding_left"
+                android:paddingEnd="@dimen/card_padding_right"/>
 
             <TextView
                 android:id="@+id/pillar_name"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pillar Name"
                 android:textColor="@color/textColorGray"
-                android:textSize="12sp"
-                android:paddingLeft="@dimen/card_padding_left"
-                android:paddingRight="@dimen/card_padding_right"/>
+                android:textSize="12sp"/>
 
         </LinearLayout>
 
@@ -69,23 +65,20 @@
                 android:id="@+id/textDatePublished"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date published:"
+                android:text="@string/date_published"
                 android:textColor="@color/textColorGray"
                 android:textSize="12sp"
-                android:paddingLeft="@dimen/card_padding_left"
-                android:paddingRight="@dimen/card_padding_right"
+                android:paddingStart="@dimen/card_padding_left"
+                android:paddingEnd="@dimen/card_padding_right"
                 android:paddingBottom="@dimen/card_padding_bottom"/>
 
             <TextView
                 android:id="@+id/web_publication_date"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="20.02.2020"
                 android:textColor="@color/textColorGray"
                 android:textSize="12sp"
-                android:paddingLeft="@dimen/card_padding_left"
-                android:paddingRight="@dimen/card_padding_right"
                 android:paddingBottom="@dimen/card_padding_bottom"/>
 
         </LinearLayout>

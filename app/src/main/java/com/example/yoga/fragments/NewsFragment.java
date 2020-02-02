@@ -128,29 +128,29 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
         startActivity(intent);
     }
 
-    @Override
-    public void onRefresh() {
 
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+        // Check if user triggered a refresh:
+        if (item.getItemId() == R.id.menu_refresh) {
+            Log.i(TAG, "Refresh menu item selected");
 
-            // Check if user triggered a refresh:
-            case R.id.menu_refresh:
-                Log.i(TAG, "Refresh menu item selected");
+            // Signal SwipeRefreshLayout to start the progress indicator
+            swipeRefreshLayout.setRefreshing(true);
 
-                // Signal SwipeRefreshLayout to start the progress indicator
-                swipeRefreshLayout.setRefreshing(true);
-
-                // Start the refresh background task.
-                // This method calls setRefreshing(false) when it's finished.
-                myUpdateOperation();
-                return true;
+            // Start the refresh background task.
+            // This method calls setRefreshing(false) when it's finished.
+            myUpdateOperation();
+            return true;
         }
 
         // User didn't trigger a refresh, let the superclass handle this action
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onRefresh() {
+
     }
 }

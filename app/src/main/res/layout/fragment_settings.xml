@@ -34,7 +34,7 @@
                 android:id="@+id/alarm_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Аларм"
+                android:text="@string/alarm"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="16sp"
@@ -51,7 +51,8 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
             android:background="@drawable/select_background_color"
-            android:onClick="ShareApp">
+            android:onClick="ShareApp"
+            tools:ignore="OnClick">
 
             <ImageView
                 android:id="@+id/share_icon"
@@ -66,7 +67,7 @@
                 android:id="@+id/share_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сподели"
+                android:text="@string/share"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="16sp"
@@ -83,7 +84,8 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
             android:background="@drawable/select_background_color"
-            android:onClick="sendEmail">
+            android:onClick="sendEmail"
+            tools:ignore="OnClick">
 
             <ImageView
                 android:id="@+id/contact_icon"
@@ -98,7 +100,7 @@
                 android:id="@+id/contact_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Контакт"
+                android:text="@string/contact"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="16sp"
@@ -115,7 +117,8 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
             android:background="@drawable/select_background_color"
-            android:onClick="seeInfo">
+            android:onClick="seeInfo"
+            tools:ignore="OnClick">
 
             <ImageView
                 android:id="@+id/aboutUs_icon"
@@ -130,7 +133,7 @@
                 android:id="@+id/aboutUs_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="За нас"
+                android:text="@string/aboutUs"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="16sp"
@@ -155,7 +158,8 @@
                 android:paddingRight="10dp"
                 android:src="@drawable/fb_icon"
                 android:background="@drawable/select_background_color"
-                android:onClick="goToFb"/>
+                android:onClick="goToFb"
+                tools:ignore="OnClick" />
 
             <ImageView
                 android:id="@+id/insta_icon"
@@ -165,7 +169,8 @@
                 android:paddingRight="10dp"
                 android:src="@drawable/insta_icon"
                 android:background="@drawable/select_background_color"
-                android:onClick="goToInsta"/>
+                android:onClick="goToInsta"
+                tools:ignore="OnClick" />
 
         </LinearLayout>
 
