@@ -4,5 +4,4 @@ public interface OnNewsClickListener {
 
     void onNewsClick(int position);
 
-
 }

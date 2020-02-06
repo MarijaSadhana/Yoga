@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -19,10 +20,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.yoga.R;
+import com.example.yoga.activity.DetailsMeditation;
+import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
 import com.example.yoga.interfaces.OnNewsClickListener;
 import com.example.yoga.interfaces.OnRefreshListener;
+import com.example.yoga.model.News;
 import com.example.yoga.model.NewsResponse;
+import com.example.yoga.model.Result;
 import com.google.gson.Gson;
 
 
@@ -111,7 +116,6 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
                             }
                         });
                     }
-
                 }
             }
         });
@@ -120,15 +124,6 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
     private void myUpdateOperation() {
 
     }
-
-    @Override
-    public void onNewsClick(int position) {
-        Intent intent = new Intent(getActivity(), WebNews.class);
-        intent.putExtra("News", (Parcelable) news.get(position));
-        startActivity(intent);
-    }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -151,6 +146,10 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
 
     @Override
     public void onRefresh() {
+    }
+
+    @Override
+    public void onNewsClick(int position) {
 
     }
 }

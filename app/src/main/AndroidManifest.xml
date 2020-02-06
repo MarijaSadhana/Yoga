@@ -10,8 +10,8 @@
         android:roundIcon="@drawable/logo_vector"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.DetailProgram"></activity>
-        <activity android:name=".fragments.WebNews" />
+        <activity android:name=".activity.WebNewsActivity"></activity>
+        <activity android:name=".activity.DetailProgram" />
         <activity android:name=".activity.SeeAllAsanas" />
         <activity android:name=".activity.SetYogaAlarm" />
         <activity android:name=".activity.AboutUsActivity" />
@@ -35,8 +35,8 @@
 
         <receiver android:name=".activity.AlarmReceiver" />
     </application>
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

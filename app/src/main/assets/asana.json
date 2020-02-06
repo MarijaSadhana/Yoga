@@ -4,78 +4,78 @@
       "asanaName": "Обратна положба",
       "sanskritName": "Viparita Karani",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "asanaImages": "viparita_karani",
-      "asanaCategory": "beginner"
+      "asanaImages": ["viparita_karani_1", "viparita_karani_2"],
+      "asanaCategory": "Почетна"
     },
     {
       "asanaName": "Триаголник",
       "sanskritName": "Trikonasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "asanaImages": "trikonasana",
-      "asanaCategory": "beginner"
+      "asanaImages": ["trokonasana_1", "trikonasana_2", "trikonasana_3"],
+      "asanaCategory": "Почетна"
     },
     {
       "asanaName": "Чамец",
       "sanskritName": "Naukasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "asanaImages": "naukasana",
-      "asanaCategory": "beginner"
+      "asanaImages": ["naukasana_1", "naukasana_2"],
+      "asanaCategory": "Почетна"
     },
     {
       "asanaName": "Вертикална штипалка",
       "sanskritName": "Uttanasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "asanaImages": "uttanasana",
-      "asanaCategory": "beginner"
+      "asanaImages": ["uttanasana_1", "uttanasana_2"],
+      "asanaCategory": "Почетна"
     },
     {
       "asanaName": "Свеќа",
       "sanskritName": "Sarvangasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "asanaImages": "sarvangasana",
-      "asanaCategory": "intermediate"
+      "asanaImages": ["sarvangasana_1", "sarvangasana_2"],
+      "asanaCategory": "Средна"
     },
     {
       "asanaName": "Камила",
       "sanskritName": "Ustrasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
-      "asanaImages": "ustrasana",
-      "asanaCategory": "advanced"
+      "asanaImages": ["ustrasana_1", "ustrasana_2", "ustrasana_3", "ustrasana_4", "ustrasana_5"],
+      "asanaCategory": "Напредна"
     },
     {
       "asanaName": "Лесна седечка положба со торзија",
       "sanskritName": "Parivrtta Sukhasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
-      "asanaImages": "parivrtta_sukhasana",
-      "asanaCategory": "beginner"
+      "asanaImages": ["parivrtta_sukhasana_1", "parivrtta_sukhasana_2", "parivrtta_sukhasana_3"],
+      "asanaCategory": "Почетна"
     },
     {
       "asanaName": "Воин 1",
       "sanskritName": "Virasana 1",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
-      "asanaImages": "virasana1",
-      "asanaCategory": "intermediate"
+      "asanaImages": ["virasana1_1", "virasana1_2"],
+      "asanaCategory": "Средна"
     },
     {
       "asanaName": "Положба на поздрав",
       "sanskritName": "Namaskarasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
-      "asanaImages": "namaskarasana",
-      "asanaCategory": "beginner"
+      "asanaImages": ["namaskarasana_1", "namaskarasana_2"],
+      "asanaCategory": "Почетна"
     },
     {
       "asanaName": "Кобра",
       "sanskritName": "Bhujangasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
-      "asanaImages": "bhujangasana",
-      "asanaCategory": "beginner"
+      "asanaImages": ["bhujangasana_1", "bhujangasana_2", "bhujangasana_3"],
+      "asanaCategory": "Почетна"
     },
     {
       "asanaName": "Мачка",
       "sanskritName": "Marjariasana",
       "asanaDetails": "Комплетно јогиско дишење како прамајама техника",
-      "asanaImages": "marjariasana",
-      "asanaCategory": "beginner"
+      "asanaImages": ["marjariasana_1", "marjariasana_2"],
+      "asanaCategory": "Почетна"
     }
   ]
 }

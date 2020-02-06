@@ -8,7 +8,7 @@ public abstract class Constants {
                 public static final String TIME_PICKER = "time_picker";
         }
 
-        public class SectionType {
+        public class CategoryType {
                 public static final int BEGINNERS = 0;
                 public static final int INTERMEDIATE = 1;
                 public static final int ADVANCED = 2;

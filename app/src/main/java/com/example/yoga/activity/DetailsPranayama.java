@@ -51,7 +51,7 @@ public class DetailsPranayama extends AppCompatActivity {
 //        pranayamas = pranayamaResponse.getPranayamas();
 
     }
-//
+
     public String loadJSONFromAsset() {
         String json;
         try {

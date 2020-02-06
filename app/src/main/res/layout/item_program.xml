@@ -37,7 +37,7 @@
             android:text="Програма"
             android:textColor="@color/textColorGray"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="@dimen/textSize_mk_name"
             android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 

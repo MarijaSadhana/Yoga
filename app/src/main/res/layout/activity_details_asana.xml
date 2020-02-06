@@ -6,7 +6,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".activity.DetailsAsana">
 
@@ -22,7 +22,7 @@
                 android:paddingBottom="10dp"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
-                android:background="@drawable/ustrasana"/>
+                android:background="@drawable/ustrasana_1"/>
 
             <ImageView
                 android:id="@+id/backArrow"

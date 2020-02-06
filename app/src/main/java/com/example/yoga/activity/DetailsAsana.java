@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.yoga.R;
+import com.example.yoga.model.AsanaResponse;
 import com.example.yoga.model.Asanas;
 import com.google.gson.Gson;
 

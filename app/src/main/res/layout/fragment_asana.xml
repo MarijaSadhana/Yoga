@@ -9,6 +9,7 @@
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recycler_view_asana"
        android:layout_width="match_parent"
-       android:layout_height="match_parent"/>
+       android:layout_height="match_parent"
+       android:layoutAnimation="@anim/layout_asana_animation"/>
 
 </FrameLayout>

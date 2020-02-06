@@ -9,19 +9,10 @@ public class AsanaResponse implements Parcelable {
 
     private int numberOfItems;
     private ArrayList<Asanas> asanas;
-    int sectionType;
 
     public AsanaResponse(int numberOfItems, ArrayList<Asanas> asanas) {
         this.numberOfItems = numberOfItems;
         this.asanas = asanas;
-    }
-
-    public int getSectionType() {
-        return sectionType;
-    }
-
-    public void setSectionType(int sectionType) {
-        this.sectionType = sectionType;
     }
 
     protected AsanaResponse(Parcel in) {

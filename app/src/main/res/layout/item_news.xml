@@ -15,6 +15,7 @@
     android:outlineAmbientShadowColor="@color/shadowItemColor">
 
     <LinearLayout
+        android:id="@+id/llayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -40,7 +41,7 @@
                 android:id="@+id/textCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/textCategory"
+                android:text="@string/news_category"
                 android:textColor="@color/textColorGray"
                 android:textSize="12sp"
                 android:paddingStart="@dimen/card_padding_left"
