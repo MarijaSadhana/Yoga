@@ -14,9 +14,8 @@
             <ImageView
                 android:id="@+id/asana_cover_image"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="fitXY"
-                android:background="@drawable/trikonasana_1"/>
+                android:layout_height="350dp"
+                android:scaleType="fitXY"/>
 
             <ImageView
                 android:id="@+id/backArrow"

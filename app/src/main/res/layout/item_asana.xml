@@ -20,7 +20,7 @@
 
         <ImageView
             android:id="@+id/asana_image"
-            android:layout_width="130dp"
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="fitXY"/>
 
