@@ -1,25 +1,40 @@
-{"numberOfItems": 5,
+{"numberOfItems": 6,
   "meditations": [
     {
-      "title": "Медитација 1",
-      "image": "meditation1"
+      "meditationTitle": "Водич за почетници",
+      "meditationImage": "vodic_za_pocetnici",
+      "meditationVideo": "beginners_guide_video",
+      "meditationDescription": "Научи ги основите на медитацијата, почнувајќи од набљудување на твоите мисли како што поминуваат додека дишeш и си свесен за своето тело."
     },
     {
-      "title": "Медитација 2",
-      "image": "meditation2"
+      "meditationTitle": "Скенирање на телото",
+      "meditationImage": "skeniranje_na_teloto",
+      "meditationVideo": "body_scan_video",
+      "meditationDescription": "Стопи ја целата вкочанетост и напнатоста од различни делови од твoето тело и „одлетај“ на некое место на опуштеност и смиреност."
     },
     {
-      "title": "Медитација 3",
-      "image": "meditation3"
+      "meditationTitle": "Брзо заспивање",
+      "meditationImage": "brzo_zaspivanje",
+      "meditationVideo": "fast_asleep_video",
+      "meditationDescription": "Постигни квалитетен сон со оваа релаксирачка медитација. Остави ги грижите зад себе, вдишувајќи опуштеност и издишувајќи ја напнатоста."
     },
     {
-      "title": "Медитација 4",
-      "image": "meditation4"
+      "meditationTitle": "Благодарност",
+      "meditationImage": "blagodarnost",
+      "meditationVideo": "gratitude_video",
+      "meditationDescription": "Дојди до еден момент на признание и почит кон суштинските работи, можностите и важните луѓе во твојот живот, кои можеби си ги занемарил."
     },
     {
-      "title": "Медитација 5",
-      "image": "meditation5"
+      "meditationTitle": "Надминување на депресијата",
+      "meditationImage": "nadminuvanje_na_depresijata",
+      "meditationVideo": "overcome_depression_video",
+      "meditationDescription": "Научи техника на дишење која ќе ти помогне да се ослободиш од стресот; постави си афирмации за препознавање и ослободување од негативните чувства и кажи „Здраво“ на новиот Ти!"
+    },
+    {
+      "meditationTitle": "Утринска медитација",
+      "meditationImage": "utrinska_meditacija",
+      "meditationVideo": "morning_meditation_video",
+      "meditationDescription": "Започни го денот со оваа медитација додека си сеуште во твојот кревет. Дозволи си да го предвидиш денот што е пред тебе, сети се на соновите и активирај го телото со едноставни и кратки физички вежби."
     }
-
   ]
 }

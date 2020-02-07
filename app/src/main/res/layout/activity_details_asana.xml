@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -12,17 +9,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/asana_cover_image"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/ustrasana_1"/>
+                android:background="@drawable/trikonasana_1"/>
 
             <ImageView
                 android:id="@+id/backArrow"
@@ -36,13 +29,13 @@
 
         </RelativeLayout>
 
-        <TextView
+       <TextView
             android:id="@+id/asana_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:paddingTop="@dimen/card_padding_top"
+            android:paddingStart="@dimen/card_padding_start"
+            android:paddingEnd="@dimen/card_padding_end"
             android:textColor="@color/mainColorGray"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -52,9 +45,9 @@
             android:id="@+id/asana_sanskrit_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:paddingTop="@dimen/card_padding_top"
+            android:paddingStart="@dimen/card_padding_start"
+            android:paddingEnd="@dimen/card_padding_end"
             android:textColor="@color/mainColorGray"
             android:textSize="16sp"
             android:textStyle="italic"
@@ -64,12 +57,12 @@
             android:id="@+id/asana_details_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:paddingTop="@dimen/card_padding_top"
+            android:paddingStart="@dimen/card_padding_start"
+            android:paddingEnd="@dimen/card_padding_end"
+            android:paddingBottom="20dp"
             android:textColor="@color/mainColorGray"
             android:textSize="14sp"
-            android:paddingTop="10dp"
-            android:text="кхсалгхлиаухрилксогоисјхогисочихгосихгчоисхихгиуахрбливухрб"/>
+            android:text="Опис на асаната"/>
 
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

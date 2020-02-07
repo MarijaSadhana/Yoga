@@ -44,7 +44,7 @@ public class AsanaAdapter extends RecyclerView.Adapter<AsanaAdapter.AsanaViewHol
     @Override
     public void onBindViewHolder(@NonNull AsanaViewHolder holder, int position) {
         Asanas asana = asanas.get(position);
-        int imageId = context.getResources().getIdentifier(asana.getAsanaImages().get(0),"drawable", context.getPackageName());
+        int imageId = context.getResources().getIdentifier(asana.getAsanaImages(), "drawable", context.getPackageName());
         holder.imageView.setImageResource(imageId);
         holder.mkName.setText(asana.getAsanaName());
         holder.sanskName.setText(asana.getSanskritName());

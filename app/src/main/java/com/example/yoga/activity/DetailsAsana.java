@@ -1,13 +1,18 @@
 package com.example.yoga.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.yoga.R;
+import com.example.yoga.interfaces.OnAsanaClickListener;
 import com.example.yoga.model.AsanaResponse;
 import com.example.yoga.model.Asanas;
 import com.google.gson.Gson;
@@ -18,10 +23,9 @@ import java.util.ArrayList;
 
 public class DetailsAsana extends AppCompatActivity {
 
-    ImageView coverImage, backArrow;
-    TextView asanaTitle, asanaSanskritTitle, asanaDetails;
-    ArrayList<Asanas> asanas = new ArrayList<>();
-    Gson gson;
+    ImageView backArrow, coverImage;
+    TextView asanaMkTitle, asanaSanskritTitle, asanaDetails;
+    Asanas asana;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,34 +34,25 @@ public class DetailsAsana extends AppCompatActivity {
 
         coverImage = findViewById(R.id.asana_cover_image);
         backArrow = findViewById(R.id.backArrow);
-        asanaTitle = findViewById(R.id.asana_title);
+        asanaMkTitle = findViewById(R.id.asana_title);
         asanaSanskritTitle = findViewById(R.id.asana_sanskrit_title);
         asanaDetails = findViewById(R.id.asana_details_text);
 
-        gson = new Gson();
-        String json = loadJSONFromAsset();
-
-//        AsanaResponse asanaResponse = gson.fromJson(json, AsanaResponse.class);
-//        asanas = asanaResponse.getAsanas();
-    }
-
-    private String loadJSONFromAsset() {
-        String json;
-        try {
-            InputStream is = getAssets().open("asana.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
+        asana = getIntent().getParcelableExtra("Asanas");
+        if (asana != null) {
+            asanaMkTitle.setText(asana.getAsanaName());
+            asanaSanskritTitle.setText(asana.getSanskritName());
+            asanaDetails.setText(asana.getAsanaDetails());
         }
-        return json;
+
+//        String imgName = asana.getAsanaImages().get(0);
+//        int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
+//        coverImage.setImageResource(resID);
+
     }
     
     public void onBackClick(View view) {
         finish();
     }
+
 }

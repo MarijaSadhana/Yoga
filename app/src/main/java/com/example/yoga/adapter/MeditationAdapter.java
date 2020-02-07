@@ -43,9 +43,9 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
 
         Meditation meditation = meditations.get(position);
 
-        int imageId = context.getResources().getIdentifier(meditation.getImage(),"drawable", context.getPackageName());
+        int imageId = context.getResources().getIdentifier(meditation.getMeditationImage(),"drawable", context.getPackageName());
         holder.image.setImageResource(imageId);
-        holder.title.setText(meditation.getTitle());
+        holder.title.setText(meditation.getMeditationTitle());
     }
 
     @Override

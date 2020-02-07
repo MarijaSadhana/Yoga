@@ -29,12 +29,13 @@
             android:id="@+id/title_meditation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:text="Медитација"
-            android:textColor="@color/textColorWhite"
-            android:textSize="@dimen/textSize_mk_name"
+            android:textColor="@color/textColorBlack"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textAlignment="center"
+            android:paddingTop="@dimen/card_padding_top"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     </RelativeLayout>

@@ -8,10 +8,9 @@ import java.util.ArrayList;
 
 public class Asanas implements Parcelable {
 
-    String asanaName, sanskritName, asanaDetails, asanaCategory;
-    ArrayList<String> asanaImages;
+    String asanaName, sanskritName, asanaDetails, asanaCategory, asanaImages;
 
-    public Asanas(String asanaName, String sanskritName, String asanaDetails, ArrayList<String> asanaImages, String asanaCategory) {
+    public Asanas(String asanaName, String sanskritName, String asanaDetails, String asanaImages, String asanaCategory) {
         this.asanaName = asanaName;
         this.sanskritName = sanskritName;
         this.asanaDetails = asanaDetails;
@@ -24,7 +23,7 @@ public class Asanas implements Parcelable {
         sanskritName = in.readString();
         asanaDetails = in.readString();
         asanaCategory = in.readString();
-        asanaImages = in.createStringArrayList();
+        asanaImages = in.readString();
     }
 
     public static final Creator<Asanas> CREATOR = new Creator<Asanas>() {
@@ -63,11 +62,11 @@ public class Asanas implements Parcelable {
         this.asanaDetails = asanaDetails;
     }
 
-    public ArrayList<String> getAsanaImages() {
+    public String getAsanaImages() {
         return asanaImages;
     }
 
-    public void setAsanaImages(ArrayList<String> asanaImages) {
+    public void setAsanaImages(String asanaImages) {
         this.asanaImages = asanaImages;
     }
 
@@ -90,7 +89,7 @@ public class Asanas implements Parcelable {
         dest.writeString(sanskritName);
         dest.writeString(asanaDetails);
         dest.writeString(asanaCategory);
-        dest.writeStringList(asanaImages);
+        dest.writeString(asanaImages);
     }
 }
 

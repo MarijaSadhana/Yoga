@@ -20,9 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.yoga.R;
+import com.example.yoga.activity.DetailsAsana;
 import com.example.yoga.activity.DetailsMeditation;
 import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
+import com.example.yoga.interfaces.OnItemListener;
 import com.example.yoga.interfaces.OnNewsClickListener;
 import com.example.yoga.interfaces.OnRefreshListener;
 import com.example.yoga.model.News;
@@ -42,7 +44,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NewsFragment extends Fragment implements OnNewsClickListener, OnRefreshListener {
+public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsClickListener {
 
     public static final String TAG = "NEWSTAG";
 
@@ -51,6 +53,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
     NewsAdapter newsAdapter;
     ArrayList news = new ArrayList<>();
     Gson gson;
+    News news1;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -90,7 +93,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
         });
 
         OkHttpClient client = new OkHttpClient();
-        String url = "https://content.guardianapis.com/search?page-size=10&q=yoga%20AND&20meditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
+        String url = "https://content.guardianapis.com/search?&q=yoga%20AND&20meditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -150,6 +153,9 @@ public class NewsFragment extends Fragment implements OnNewsClickListener, OnRef
 
     @Override
     public void onNewsClick(int position) {
+        Intent intent = new Intent(getActivity(), WebNewsActivity.class);
+        intent.putExtra("News", (Parcelable) news.get(position));
+        startActivity(intent);
 
     }
 }

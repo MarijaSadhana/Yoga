@@ -5,14 +5,15 @@ import android.os.Parcelable;
 
 public class Meditation implements Parcelable {
 
-    String title;
-    String image;
+    private String meditationTitle, meditationImage, meditationVideo, meditationDescription;
 
     public Meditation(){}
 
-    protected Meditation(Parcel in) {
-        title = in.readString();
-        image = in.readString();
+    private Meditation(Parcel in) {
+        meditationTitle = in.readString();
+        meditationImage = in.readString();
+        meditationVideo = in.readString();
+        meditationDescription = in.readString();
     }
 
     public static final Creator<Meditation> CREATOR = new Creator<Meditation>() {
@@ -34,28 +35,52 @@ public class Meditation implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(title);
-        dest.writeString(image);
+        dest.writeString(meditationTitle);
+        dest.writeString(meditationImage);
+        dest.writeString(meditationVideo);
+        dest.writeString(meditationDescription);
     }
 
-    public Meditation(String title, String audio) {
-        this.title = title;
-        this.image = audio;
+    public Meditation(String meditationTitle, String meditationImage, String meditationVideo, String meditationDescription) {
+        this.meditationTitle = meditationTitle;
+        this.meditationImage = meditationImage;
+        this.meditationVideo = meditationVideo;
+        this.meditationDescription = meditationDescription;
     }
 
-    public String getTitle() {
-        return title;
+    public String getMeditationTitle() {
+        return meditationTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setMeditationTitle(String meditationTitle) {
+        this.meditationTitle = meditationTitle;
     }
 
-    public String getImage() {
-        return image;
+    public String getMeditationImage() {
+        return meditationImage;
     }
 
-    public void setImage(String audio) {
-        this.image = audio;
+    public void setMeditationImage(String meditationImage) {
+        this.meditationImage = meditationImage;
+    }
+
+    public String getMeditationVideo() {
+        return meditationVideo;
+    }
+
+    public void setMeditationVideo(String meditationVideo) {
+        this.meditationVideo = meditationVideo;
+    }
+
+    public String getMeditationDescription() {
+        return meditationDescription;
+    }
+
+    public void setMeditationDescription(String meditationDescription) {
+        this.meditationDescription = meditationDescription;
+    }
+
+    public static Creator<Meditation> getCREATOR() {
+        return CREATOR;
     }
 }

@@ -1,24 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout android:layout_width="match_parent"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:id="@+id/meditation_cover_image"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/logo_sadhana"/>
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/backArrow"
-        android:layout_width="wrap_content"
+        <VideoView
+            android:id="@+id/meditation_video"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"/>
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow"
+            android:layout_margin="20dp"
+            android:elevation="5dp"
+            android:onClick="onBackClick"
+            android:foreground="?attr/selectableItemBackground"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/meditation_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_arrow"
-        android:layout_margin="20dp"
-        android:elevation="5dp"
-        android:onClick="onBackClick"
-        android:foreground="?attr/selectableItemBackground"/>
+        android:paddingTop="@dimen/card_padding_top"
+        android:paddingStart="@dimen/card_padding_start"
+        android:paddingEnd="@dimen/card_padding_end"
+        android:text="Наслов"
+        android:textColor="@color/textColorGray"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/meditation_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/card_padding_top"
+        android:paddingStart="@dimen/card_padding_start"
+        android:paddingEnd="@dimen/card_padding_end"
+        android:paddingBottom="20dp"
+        android:text="Опис на медитацијата"
+        android:textColor="@color/textColorGray"
+        android:textSize="14sp"/>
+
+</LinearLayout>
 
