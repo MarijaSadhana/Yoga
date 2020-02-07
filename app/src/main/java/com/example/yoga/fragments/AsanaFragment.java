@@ -88,7 +88,7 @@ public class AsanaFragment extends Fragment implements OnAsanaClickListener {
     @Override
     public void onAsanaClick(int position) {
         Intent intent = new Intent(getActivity(), DetailsAsana.class);
-        intent.putExtra("Asana", asanas.get(position));
+        intent.putExtra("Asanas", asanas.get(position));
         startActivity(intent);
     }
 }

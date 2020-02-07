@@ -50,11 +50,17 @@ public class DetailsMeditation extends AppCompatActivity  {
             meditationDescription.setText(meditation.getMeditationDescription());
         }
 
-        if (meditation.getMeditationVideo() != null) {
-            String video = meditation.getMeditationVideo();
-            int videoUri = getResources().getIdentifier(video, "assets", getPackageName());
-            videoView.setVideoPath(String.valueOf(videoUri));
-        }
+//        example 1
+//        String uriPath = "android.src://main/assets/meditation";
+//        Uri uri = Uri.parse(uriPath);
+//        videoView.setVideoURI(uri);
+
+//        example 2
+//        if (meditation.getMeditationVideo() != null) {
+//            String video = meditation.getMeditationVideo();
+//            int videoUri = getResources().getIdentifier(video, "raw", getPackageName());
+//            videoView.setVideoPath(String.valueOf(videoUri));
+//        }
     }
 
     public void onBackClick(View view) {

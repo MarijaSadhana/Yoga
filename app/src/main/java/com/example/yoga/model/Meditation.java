@@ -7,8 +7,6 @@ public class Meditation implements Parcelable {
 
     private String meditationTitle, meditationImage, meditationVideo, meditationDescription;
 
-    public Meditation(){}
-
     private Meditation(Parcel in) {
         meditationTitle = in.readString();
         meditationImage = in.readString();

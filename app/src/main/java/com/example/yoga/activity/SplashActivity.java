@@ -16,8 +16,6 @@ import com.example.yoga.R;
 public class SplashActivity extends Activity {
 
     VideoView videoView;
-    Button button;
-//    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +24,6 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
 
         videoView = findViewById(R.id.splash_video_view);
-        button = findViewById(R.id.enter_button);
-//        imageView = findViewById(R.id.splash_image);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash_video);
         videoView.setVideoURI(video);
@@ -49,12 +36,12 @@ public class SplashActivity extends Activity {
 
         videoView.start();
 
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mediaPlayer.setVolume(0,0);
-            }
-        });
+//        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+//            @Override
+//            public void onPrepared(MediaPlayer mediaPlayer) {
+//                mediaPlayer.setVolume(0,0);
+//            }
+//        });
     }
 
     private void startNextActivity() {

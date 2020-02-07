@@ -4,8 +4,6 @@ package com.example.yoga.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-
 public class Asanas implements Parcelable {
 
     String asanaName, sanskritName, asanaDetails, asanaCategory, asanaImages;

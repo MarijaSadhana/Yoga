@@ -45,10 +45,9 @@ public class DetailsAsana extends AppCompatActivity {
             asanaDetails.setText(asana.getAsanaDetails());
         }
 
-//        String imgName = asana.getAsanaImages().get(0);
-//        int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
-//        coverImage.setImageResource(resID);
-
+        String imgName = asana.getAsanaImages();
+        int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
+        coverImage.setImageResource(resID);
     }
     
     public void onBackClick(View view) {

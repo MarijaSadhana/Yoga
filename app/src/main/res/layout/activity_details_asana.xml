@@ -15,6 +15,7 @@
                 android:id="@+id/asana_cover_image"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                android:scaleType="fitXY"
                 android:background="@drawable/trikonasana_1"/>
 
             <ImageView
@@ -36,7 +37,7 @@
             android:paddingTop="@dimen/card_padding_top"
             android:paddingStart="@dimen/card_padding_start"
             android:paddingEnd="@dimen/card_padding_end"
-            android:textColor="@color/mainColorGray"
+            android:textColor="@color/textColorGray"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="Наслов"/>
@@ -48,7 +49,7 @@
             android:paddingTop="@dimen/card_padding_top"
             android:paddingStart="@dimen/card_padding_start"
             android:paddingEnd="@dimen/card_padding_end"
-            android:textColor="@color/mainColorGray"
+            android:textColor="@color/textColorGray"
             android:textSize="16sp"
             android:textStyle="italic"
             android:text="Санскрит наслов"/>
@@ -61,7 +62,7 @@
             android:paddingStart="@dimen/card_padding_start"
             android:paddingEnd="@dimen/card_padding_end"
             android:paddingBottom="20dp"
-            android:textColor="@color/mainColorGray"
+            android:textColor="@color/textColorGray"
             android:textSize="14sp"
             android:text="Опис на асаната"/>
 
