@@ -1,49 +1,47 @@
-{"numberOfItems": 5,
+{"numberOfItems": 6,
   "pranayamas": [
     {
-      "name": "Комплетно јогиско дишење",
-      "sanskritName": "",
-      "details": "Комплетно јогиско дишење како прамајама техника се изведува од седечка положба во која грбот треба да е исправен....",
-      "images": "full_yoga_breath",
-      "video": "full_breath_video"
+      "pranayamaName": "Комплетно јогиско дишење",
+      "pranayamaSanskritName": "",
+      "pranayamaDetails": "Изведба:\nВо седечката положба ‘рбетот треба да биде исправен, а телото стабилно и опуштено. На почеток го следиме природното дишење за да се подобри свесноста за овој процес.\nИздишуваме длабоко и потоа вдишуваме абдоминално, при што се активира само натпапочната зона, а градниот кош мирува. Продолжуваме со вдишување нагоре во градниот кош, при што се полни средниот дел од белите дробови.  Продолжуваме да вдишуваме со горниот дел на градите, односно стерноклавикуларно, со што се исполнува целиот капацитет на белите дробови.\nИздишувањето е по обратен редослед, почнува од горниот дел, кон градите и завршуваме со издишување од стомакот.\n\nБенефити:\n•\tмексимално го активира и искористува целиот капацитет на белите дробови\n•\tсе зголемува еластичноста на белите дробови и на респираторната мускулатура\n•\tсе обезбедува поголемо количество кислород за мозокот и за целиот нервен систем\n•\tкомплетното јогиско дишење се применува во специјализирани програми за терапија и рехабилитација на психосоматски заболувања и на други физички и психички нарушувања.\n",
+      "pranayamaImage": "full_yoga_breath",
+      "pranayamaVideo": "full_yoga_breath_video"
     },
     {
-      "name": "Наизменично дишење",
-      "sanskritName": "Nadi Shodana",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "nadi_shodana",
-      "video": "nadi_shodan_video"
+      "pranayamaName": "Наизменично дишење",
+      "pranayamaSanskritName": "Nadi Shodana",
+      "pranayamaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "pranayamaImage": "nadi_shodana",
+      "pranayamaVideo": "nadi_shodan_video"
     },
     {
-      "name": "Океанско дишење",
-      "sanskritName": "Ujjayi",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "ujjayi",
-      "video": "ujjayi_video"
+      "pranayamaName": "Океанско дишење",
+      "pranayamaSanskritName": "Ujjayi",
+      "pranayamaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "pranayamaImage": "ujjayi",
+      "pranayamaVideo": "ujjayi_video"
 
     },
     {
-      "name": "Светол череп",
-      "sanskritName": "Kapalbhati",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "kapalbhati",
-      "video": "kapalbhati_video"
+      "pranayamaName": "Светол череп",
+      "pranayamaSanskritName": "Kapalbhati",
+      "pranayamaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "pranayamaImage": "kapalbhati",
+      "pranayamaVideo": "kapalbhati_video"
     },
     {
-      "name": "Брмчење на пчела",
-      "sanskritName": "Bhramari",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "bhramari",
-      "video": "bhramari_video"
+      "pranayamaName": "Брмчење на пчела",
+      "pranayamaSanskritName": "Bhramari",
+      "pranayamaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "pranayamaImage": "bhramari",
+      "pranayamaVideo": "bhramari_video"
     },
     {
-      "name": "Ковачки мев",
-      "sanskritName": "Bhastrika",
-      "details": "Комплетно јогиско дишење како прамајама техника",
-      "images": "bhastrika",
-      "video": "bhastrika_video"
+      "pranayamaName": "Ковачки мев",
+      "pranayamaSanskritName": "Bhastrika",
+      "pranayamaDetails": "Комплетно јогиско дишење како прамајама техника",
+      "pranayamaImage": "bhastrika",
+      "pranayamaVideo": "bhastrika_video"
     }
-
-
-]
+  ]
 }

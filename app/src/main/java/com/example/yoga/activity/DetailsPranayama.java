@@ -29,8 +29,7 @@ public class DetailsPranayama extends AppCompatActivity {
 //    VideoView pranaVideo;
     ImageView coverImage, backArrow;
     TextView pranaTitle, pranaSanskritTitle, pranaDetails;
-    ArrayList<Pranayama> pranayamas = new ArrayList<>();
-    Gson gson;
+    Pranayama pranayama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,34 +37,22 @@ public class DetailsPranayama extends AppCompatActivity {
         setContentView(R.layout.activity_details_pranayama);
 
 //        pranaVideo = findViewById(R.id.pranayama_video);
-        coverImage = findViewById(R.id.prana_cover_image);
+        coverImage = findViewById(R.id.pranayama_cover_image);
         backArrow = findViewById(R.id.backArrow);
-        pranaTitle = findViewById(R.id.prana_title);
-        pranaSanskritTitle = findViewById(R.id.prana_sanskrit_title);
-        pranaDetails = findViewById(R.id.prana_details_text);
+        pranaTitle = findViewById(R.id.pranayama_title);
+        pranaSanskritTitle = findViewById(R.id.pranayama_sanskrit_title);
+        pranaDetails = findViewById(R.id.pranayama_details_text);
 
-        gson = new Gson();
-        String json = loadJSONFromAsset();
-
-//        PranayamaResponse pranayamaResponse = gson.fromJson(json, PranayamaResponse.class);
-//        pranayamas = pranayamaResponse.getPranayamas();
-
-    }
-
-    public String loadJSONFromAsset() {
-        String json;
-        try {
-            InputStream is = getAssets().open("pranayama.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
+        pranayama = getIntent().getParcelableExtra("Pranayama");
+        if (pranayama != null) {
+            pranaTitle.setText(pranayama.getPranayamaName());
+            pranaSanskritTitle.setText(pranayama.getPranayamaSanskritName());
+            pranaDetails.setText(pranayama.getPranayamaDetails());
         }
-        return json;
+
+        String imgName = pranayama.getPranayamaImage();
+        int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
+        coverImage.setImageResource(resID);
     }
 
     public void onBackClick(View view) {

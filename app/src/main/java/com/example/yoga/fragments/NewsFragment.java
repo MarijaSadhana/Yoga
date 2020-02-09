@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -20,16 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.yoga.R;
-import com.example.yoga.activity.DetailsAsana;
-import com.example.yoga.activity.DetailsMeditation;
 import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
-import com.example.yoga.interfaces.OnItemListener;
 import com.example.yoga.interfaces.OnNewsClickListener;
 import com.example.yoga.interfaces.OnRefreshListener;
 import com.example.yoga.model.News;
 import com.example.yoga.model.NewsResponse;
-import com.example.yoga.model.Result;
 import com.google.gson.Gson;
 
 
@@ -53,7 +48,6 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
     NewsAdapter newsAdapter;
     ArrayList news = new ArrayList<>();
     Gson gson;
-    News news1;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -93,8 +87,9 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
         });
 
         OkHttpClient client = new OkHttpClient();
-        String url = "https://content.guardianapis.com/search?&q=yoga%20AND&20meditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
-        Request request = new Request.Builder().url(url).build();
+        String url = "https://content.guardianapis.com/search?&q=meditation%20AND&20yoga&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
+        Request request = new Request.Builder().url(url).get().build();
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
@@ -134,16 +129,12 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
         if (item.getItemId() == R.id.menu_refresh) {
             Log.i(TAG, "Refresh menu item selected");
 
-            // Signal SwipeRefreshLayout to start the progress indicator
             swipeRefreshLayout.setRefreshing(true);
 
             // Start the refresh background task.
-            // This method calls setRefreshing(false) when it's finished.
             myUpdateOperation();
             return true;
         }
-
-        // User didn't trigger a refresh, let the superclass handle this action
         return super.onOptionsItemSelected(item);
     }
 
@@ -154,8 +145,7 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
     @Override
     public void onNewsClick(int position) {
         Intent intent = new Intent(getActivity(), WebNewsActivity.class);
-        intent.putExtra("News", (Parcelable) news.get(position));
+        intent.putExtra(WebNewsActivity.URL_EXTRA, position);
         startActivity(intent);
-
     }
 }

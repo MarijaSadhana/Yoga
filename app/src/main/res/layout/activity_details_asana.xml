@@ -1,68 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DetailsAsana">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".activity.DetailsAsana">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/asana_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="350dp"
+            android:scaleType="fitXY"/>
 
-            <ImageView
-                android:id="@+id/asana_cover_image"
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow"
+            android:layout_margin="20dp"
+            android:elevation="5dp"
+            android:onClick="onBackClick"
+            android:foreground="?attr/selectableItemBackground"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+           <TextView
+                android:id="@+id/asana_title"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:scaleType="fitXY"/>
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/card_padding_top"
+                android:paddingStart="@dimen/card_padding_start"
+                android:paddingEnd="@dimen/card_padding_end"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:textColor="@color/textColorGray"
+                android:background="@color/backroundText"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+               android:textAllCaps="true"
+                android:text="Наслов"/>
 
-            <ImageView
-                android:id="@+id/backArrow"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/asana_sanskrit_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/card_padding_start"
+                android:paddingEnd="@dimen/card_padding_end"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:paddingTop="@dimen/card_padding_top"
+                android:textColor="@color/textColorGray"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:text="Санскрит наслов"/>
+
+            <TextView
+                android:id="@+id/izvedba"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_back_arrow"
-                android:layout_margin="20dp"
-                android:elevation="5dp"
-                android:onClick="onBackClick"
-                android:foreground="?attr/selectableItemBackground"/>
+                android:background="@color/backroundText"
+                android:gravity="start"
+                android:paddingStart="@dimen/card_padding_start"
+                android:paddingTop="@dimen/card_padding_top"
+                android:paddingEnd="@dimen/card_padding_end"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:textColor="@color/textColorGray"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Начин на изведба, бенефити и контраиндикации:"/>
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/asana_details_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/card_padding_top"
+                android:paddingStart="@dimen/card_padding_start"
+                android:paddingEnd="@dimen/card_padding_end"
+                android:paddingBottom="20dp"
+                android:textColor="@color/textColorGray"
+                android:textSize="14sp"
+                android:text="Опис на начинот на изведување на асаната, опис на бенефитите од нејзината изведба и контраиндикациите"/>
 
-       <TextView
-            android:id="@+id/asana_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/card_padding_top"
-            android:paddingStart="@dimen/card_padding_start"
-            android:paddingEnd="@dimen/card_padding_end"
-            android:textColor="@color/textColorGray"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="Наслов"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/asana_sanskrit_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/card_padding_top"
-            android:paddingStart="@dimen/card_padding_start"
-            android:paddingEnd="@dimen/card_padding_end"
-            android:textColor="@color/textColorGray"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            android:text="Санскрит наслов"/>
-
-        <TextView
-            android:id="@+id/asana_details_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/card_padding_top"
-            android:paddingStart="@dimen/card_padding_start"
-            android:paddingEnd="@dimen/card_padding_end"
-            android:paddingBottom="20dp"
-            android:textColor="@color/textColorGray"
-            android:textSize="14sp"
-            android:text="Опис на асаната"/>
+    </ScrollView>
 
 </LinearLayout>

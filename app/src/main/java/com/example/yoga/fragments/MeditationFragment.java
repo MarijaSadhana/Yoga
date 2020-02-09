@@ -17,14 +17,10 @@ import android.view.ViewGroup;
 
 import com.example.yoga.R;
 import com.example.yoga.activity.DetailsMeditation;
-import com.example.yoga.activity.DetailsPranayama;
 import com.example.yoga.adapter.MeditationAdapter;
-import com.example.yoga.adapter.PranayamaAdapter;
 import com.example.yoga.interfaces.OnItemListener;
 import com.example.yoga.model.Meditation;
 import com.example.yoga.model.MeditationResponse;
-import com.example.yoga.model.Pranayama;
-import com.example.yoga.model.PranayamaResponse;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -34,8 +30,6 @@ import java.util.ArrayList;
 public class MeditationFragment extends Fragment implements OnItemListener {
 
     public static final String TAG = PranayamaFragment.class.getSimpleName();
-    public static final String TYPE = "MEDTAG";
-    public static final int MEDITATION = 0;
 
     RecyclerView recyclerView;
     MeditationAdapter meditationAdapter;

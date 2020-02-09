@@ -42,10 +42,10 @@ public class PranayamaAdapter extends RecyclerView.Adapter<PranayamaAdapter.Pran
     public void onBindViewHolder(@NonNull PranayamaViewHolder holder, int position) {
 
         Pranayama pranayama = pranayamas.get(position);
-        int imageId = context.getResources().getIdentifier(pranayama.getImages(),"drawable", context.getPackageName());
+        int imageId = context.getResources().getIdentifier(pranayama.getPranayamaImage(),"drawable", context.getPackageName());
         holder.image.setImageResource(imageId);
-        holder.text.setText(pranayama.getName());
-        holder.sanskritText.setText(pranayama.getSanskritName());
+        holder.text.setText(pranayama.getPranayamaName());
+        holder.sanskritText.setText(pranayama.getPranayamaSanskritName());
     }
 
     @Override

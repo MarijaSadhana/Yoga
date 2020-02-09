@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class DetailsAsana extends AppCompatActivity {
 
     ImageView backArrow, coverImage;
-    TextView asanaMkTitle, asanaSanskritTitle, asanaDetails;
+    TextView asanaMkTitle, asanaSanskritTitle, asanaDetails, izvedba;
     Asanas asana;
 
     @Override
@@ -34,6 +34,7 @@ public class DetailsAsana extends AppCompatActivity {
 
         coverImage = findViewById(R.id.asana_cover_image);
         backArrow = findViewById(R.id.backArrow);
+        izvedba = findViewById(R.id.izvedba);
         asanaMkTitle = findViewById(R.id.asana_title);
         asanaSanskritTitle = findViewById(R.id.asana_sanskrit_title);
         asanaDetails = findViewById(R.id.asana_details_text);

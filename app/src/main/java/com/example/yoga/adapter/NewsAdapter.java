@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yoga.R;
 import com.example.yoga.interfaces.OnNewsClickListener;
+import com.example.yoga.model.News;
 import com.example.yoga.model.Result;
 
 import java.util.ArrayList;

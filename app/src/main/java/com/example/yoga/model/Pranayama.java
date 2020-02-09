@@ -6,16 +6,24 @@ import android.os.Parcelable;
 
 public class Pranayama implements Parcelable {
 
-    String name, sanskritName, details, images, video;
+    String pranayamaName, pranayamaSanskritName, pranayamaDetails, pranayamaImage, pranayamaVideo;
 
     public Pranayama(){}
 
+    public Pranayama(String pranayamaName, String pranayamaSanskritName, String pranayamaDetails, String pranayamaImage, String pranayamaVideo) {
+        this.pranayamaName = pranayamaName;
+        this.pranayamaSanskritName = pranayamaSanskritName;
+        this.pranayamaDetails = pranayamaDetails;
+        this.pranayamaImage = pranayamaImage;
+        this.pranayamaVideo = pranayamaVideo;
+    }
+
     protected Pranayama(Parcel in) {
-        name = in.readString();
-        sanskritName = in.readString();
-        details = in.readString();
-        images = in.readString();
-        video = in.readString();
+        pranayamaName = in.readString();
+        pranayamaSanskritName = in.readString();
+        pranayamaDetails = in.readString();
+        pranayamaImage = in.readString();
+        pranayamaVideo = in.readString();
     }
 
     public static final Creator<Pranayama> CREATOR = new Creator<Pranayama>() {
@@ -30,56 +38,44 @@ public class Pranayama implements Parcelable {
         }
     };
 
-    public Pranayama(String name, String sanskritName, String details, String images, String video) {
-        this.name = name;
-        this.sanskritName = sanskritName;
-        this.details = details;
-        this.images = images;
-        this.video = video;
+    public String getPranayamaName() {
+        return pranayamaName;
     }
 
-    public String getName() {
-        return name;
+    public void setPranayamaName(String pranayamaName) {
+        this.pranayamaName = pranayamaName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getPranayamaSanskritName() {
+        return pranayamaSanskritName;
     }
 
-    public String getSanskritName() {
-        return sanskritName;
+    public void setPranayamaSanskritName(String pranayamaSanskritName) {
+        this.pranayamaSanskritName = pranayamaSanskritName;
     }
 
-    public void setSanskritName(String sanskritName) {
-        this.sanskritName = sanskritName;
+    public String getPranayamaDetails() {
+        return pranayamaDetails;
     }
 
-    public String getDetails() {
-        return details;
+    public void setPranayamaDetails(String pranayamaDetails) {
+        this.pranayamaDetails = pranayamaDetails;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public String getPranayamaImage() {
+        return pranayamaImage;
     }
 
-    public String getImages() {
-        return images;
+    public void setPranayamaImage(String pranayamaImage) {
+        this.pranayamaImage = pranayamaImage;
     }
 
-    public void setImages(String images) {
-        this.images = images;
+    public String getPranayamaVideo() {
+        return pranayamaVideo;
     }
 
-    public String getVideo(){
-        return  video;
-    }
-
-    public void  setVideo(){
-        this.video = video;
-    }
-
-    public static Creator<Pranayama> getCREATOR() {
-        return CREATOR;
+    public void setPranayamaVideo(String pranayamaVideo) {
+        this.pranayamaVideo = pranayamaVideo;
     }
 
     @Override
@@ -88,11 +84,11 @@ public class Pranayama implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(sanskritName);
-        parcel.writeString(details);
-        parcel.writeString(images);
-        parcel.writeString(video);
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(pranayamaName);
+        dest.writeString(pranayamaSanskritName);
+        dest.writeString(pranayamaDetails);
+        dest.writeString(pranayamaImage);
+        dest.writeString(pranayamaVideo);
     }
 }

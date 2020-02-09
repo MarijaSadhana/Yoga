@@ -2,44 +2,30 @@ package com.example.yoga.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.AssetFileDescriptor;
-import android.graphics.PixelFormat;
-import android.media.MediaPlayer;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.VideoView;
-
-import com.bumptech.glide.Glide;
 import com.example.yoga.R;
-import com.example.yoga.interfaces.OnItemListener;
 import com.example.yoga.model.Meditation;
-import com.example.yoga.model.MeditationResponse;
-import com.example.yoga.model.Pranayama;
-import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 
-public class DetailsMeditation extends AppCompatActivity  {
+public class DetailsMeditation extends AppCompatActivity {
 
-    VideoView videoView;
-    ImageView backArrow;
+    ImageView meditationCover, backArrow, videoPlay;
     TextView meditationTitle, meditationDescription;
     Meditation meditation;
+//    YouTubePlayerView youTubeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_meditation);
 
-        videoView = findViewById(R.id.meditation_video);
+        meditationCover = findViewById(R.id.meditation_cover_image);
+        videoPlay = findViewById(R.id.video_play_image);
         backArrow = findViewById(R.id.backArrow);
         meditationTitle = findViewById(R.id.meditation_title);
         meditationDescription = findViewById(R.id.meditation_description);
@@ -50,22 +36,22 @@ public class DetailsMeditation extends AppCompatActivity  {
             meditationDescription.setText(meditation.getMeditationDescription());
         }
 
-//        example 1
-//        String uriPath = "android.src://main/assets/meditation";
-//        Uri uri = Uri.parse(uriPath);
-//        videoView.setVideoURI(uri);
+        String imgName = meditation.getMeditationImage();
+        int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
+        meditationCover.setImageResource(resID);
 
-//        example 2
-//        if (meditation.getMeditationVideo() != null) {
-//            String video = meditation.getMeditationVideo();
-//            int videoUri = getResources().getIdentifier(video, "raw", getPackageName());
-//            videoView.setVideoPath(String.valueOf(videoUri));
-//        }
+        videoPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String videoId = meditation.getMeditationVideo();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube://" + videoId));
+                intent.putExtra("force_fullscreen",true);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onBackClick(View view) {
         finish();
     }
-
-
 }

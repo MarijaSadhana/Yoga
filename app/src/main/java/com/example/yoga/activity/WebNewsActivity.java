@@ -13,6 +13,7 @@ import com.example.yoga.R;
 public class WebNewsActivity extends AppCompatActivity {
 
     public static final String URL_EXTRA = "URL_EXTRA";
+
     WebView webView;
     TextView error;
 
@@ -21,13 +22,14 @@ public class WebNewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_news);
 
-        String url = getIntent().getStringExtra(URL_EXTRA);
         webView = (WebView) findViewById(R.id.webViewID);
         error = (TextView) findViewById(R.id.error);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.setWebViewClient(new WebViewClient());
+
+        String url = getIntent().getStringExtra(URL_EXTRA);
 
         if (url != null){
             webView.loadUrl(url);
