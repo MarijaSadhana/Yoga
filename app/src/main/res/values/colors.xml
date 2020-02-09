@@ -3,7 +3,12 @@
     <color name="mainColorPurple">#CE49F1</color>
     <color name="mainColorGray">#68858181</color>
     <color name="menuItemColor">#000000</color>
+    <color name="menuItemColorPurple">#CE49F1</color>
+    <color name="menuItemColorWhite">#ffffff</color>
     <color name="backgroundWhite">#ffffff</color>
+    <color name="backgroundBlack">#000000</color>
+    <color name="backgroundGrey">#68858181</color>
+    <color name="backgroundPurple">#CE49F1</color>
     <color name="shadowItemColor">#46000000</color>
 
     <color name="textColorPurple">#CE49F1</color>

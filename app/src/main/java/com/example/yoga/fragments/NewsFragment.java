@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -44,6 +45,7 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
     public static final String TAG = "NEWSTAG";
 
     RecyclerView recyclerView;
+    ImageView imageView;
     TextView category, date;
     NewsAdapter newsAdapter;
     ArrayList news = new ArrayList<>();
@@ -68,6 +70,7 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         gson = new Gson();
+        imageView = view.findViewById(R.id.news_logo);
         category = view.findViewById(R.id.textCategory);
         date = view.findViewById(R.id.textDatePublished);
         progressBar = view.findViewById(R.id.progressBar);

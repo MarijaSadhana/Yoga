@@ -33,7 +33,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingRight="10dp"
-            android:textColor="@color/textColorGray"
+            android:textColor="@color/textColorPurple"
             android:textSize="14sp"
             android:textStyle="bold"/>
 
