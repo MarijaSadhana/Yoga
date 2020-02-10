@@ -17,7 +17,6 @@ public class DetailsMeditation extends AppCompatActivity {
     ImageView meditationCover, backArrow, videoPlay;
     TextView meditationTitle, meditationDescription;
     Meditation meditation;
-//    YouTubePlayerView youTubeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -48,14 +48,18 @@
             <TextView
                 android:id="@+id/meditation_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="50dp"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/card_padding_top"
                 android:paddingStart="@dimen/card_padding_start"
                 android:paddingEnd="@dimen/card_padding_end"
-                android:text="Наслов"
-                android:textColor="@color/textColorGray"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:textColor="@color/textColorPurple"
+                android:background="@color/backroundText"
+                android:gravity="center"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:text="Наслов"/>
 
             <TextView
                 android:id="@+id/meditation_description"

@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/card_margin_bottom"
     android:layout_marginTop="@dimen/card_margin_top"
-    android:layout_marginRight="@dimen/card_margin_right"
-    android:layout_marginLeft="@dimen/card_margin_left"
+    android:layout_marginEnd="@dimen/card_margin_right"
+    android:layout_marginStart="@dimen/card_margin_left"
     app:cardElevation="@dimen/card_elevation"
     app:cardCornerRadius="@dimen/card_corner_radius"
     android:background="@color/backgroundWhite"
@@ -14,33 +14,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:outlineAmbientShadowColor="@color/shadowItemColor">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/title_program"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="Програма"
-            android:textColor="@color/textColorPurple"
-            android:gravity="center"
-            android:textSize="@dimen/textSize_mk_name"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:background="@color/backgroundBlack">
 
         <ImageView
-            android:id="@+id/image_program"
-            android:layout_width="150dp"
+            android:id="@+id/program_cover"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/program_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:text="Програма"
+            android:textColor="@color/textColorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingTop="@dimen/card_padding_top"
+            android:paddingStart="@dimen/card_padding_start"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/duration_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="Времетраење:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorWhite"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:paddingEnd="@dimen/card_padding_end"/>
+
+            <TextView
+                android:id="@+id/duration_numbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="10:28"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorWhite"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:paddingEnd="@dimen/card_padding_end"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

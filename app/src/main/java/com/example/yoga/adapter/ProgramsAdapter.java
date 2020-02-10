@@ -46,7 +46,7 @@ public class ProgramsAdapter extends RecyclerView.Adapter<ProgramsAdapter.Progra
         int imageId = context.getResources().getIdentifier(program.getProgramImage(), "drawable", context.getPackageName());
         holder.programImage.setImageResource(imageId);
         holder.programTitle.setText(program.getProgramTitle());
-
+        holder.duration.setText(program.getDuration());
     }
 
     @Override
@@ -56,13 +56,14 @@ public class ProgramsAdapter extends RecyclerView.Adapter<ProgramsAdapter.Progra
 
     public class ProgramsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView programTitle;
+        TextView programTitle, duration;
         ImageView programImage;
 
         public ProgramsViewHolder(View itemView) {
             super(itemView);
-            programTitle = itemView.findViewById(R.id.title_program);
-            programImage = itemView.findViewById(R.id.image_program);
+            programTitle = itemView.findViewById(R.id.program_title);
+            programImage = itemView.findViewById(R.id.program_cover);
+            duration = itemView.findViewById(R.id.duration_numbers);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

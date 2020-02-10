@@ -46,12 +46,12 @@
                 android:paddingStart="@dimen/card_padding_start"
                 android:paddingEnd="@dimen/card_padding_end"
                 android:paddingBottom="@dimen/card_padding_bottom"
-                android:textColor="@color/textColorGray"
+                android:textColor="@color/textColorPurple"
                 android:background="@color/backroundText"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"
-               android:textAllCaps="true"
+                android:textAllCaps="true"
                 android:text="Наслов"/>
 
             <TextView

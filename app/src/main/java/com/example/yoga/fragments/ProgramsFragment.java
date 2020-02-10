@@ -14,6 +14,7 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.yoga.R;
 import com.example.yoga.activity.DetailProgram;
@@ -32,6 +33,7 @@ public class ProgramsFragment extends Fragment implements OnItemListener {
     public static final String TAG = "PROGTAG";
 
     RecyclerView recyclerView;
+    TextView durationText;
     ProgramsAdapter programsAdapter;
     ArrayList<Programs> programs = new ArrayList<>();
     Gson gson;
@@ -53,6 +55,7 @@ public class ProgramsFragment extends Fragment implements OnItemListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        durationText = view.findViewById(R.id.duration_text);
         recyclerView = view.findViewById(R.id.recycler_view_programs);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         gson = new Gson();
@@ -84,7 +87,7 @@ public class ProgramsFragment extends Fragment implements OnItemListener {
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(getActivity(), DetailProgram.class);
-        intent.putExtra("Program", (Parcelable) programs.get(position));
+        intent.putExtra("Programs", (Parcelable) programs.get(position));
         startActivity(intent);
 
     }
