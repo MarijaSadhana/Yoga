@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/pranayama_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="300dp"
             android:scaleType="fitXY"/>
 
         <ImageView
@@ -36,7 +36,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="40dp">
 
             <TextView
                 android:id="@+id/pranayama_title"
