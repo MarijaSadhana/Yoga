@@ -5,12 +5,13 @@ import android.os.Parcelable;
 
 public class Meditation implements Parcelable {
 
-    private String meditationTitle, meditationImage, meditationVideo, meditationDescription;
+    private String meditationTitle, meditationImage, meditationVideo, duration, meditationDescription;
 
     private Meditation(Parcel in) {
         meditationTitle = in.readString();
         meditationImage = in.readString();
         meditationVideo = in.readString();
+        duration = in.readString();
         meditationDescription = in.readString();
     }
 
@@ -36,13 +37,15 @@ public class Meditation implements Parcelable {
         dest.writeString(meditationTitle);
         dest.writeString(meditationImage);
         dest.writeString(meditationVideo);
+        dest.writeString(duration);
         dest.writeString(meditationDescription);
     }
 
-    public Meditation(String meditationTitle, String meditationImage, String meditationVideo, String meditationDescription) {
+    public Meditation(String meditationTitle, String meditationImage, String meditationVideo, String duration, String meditationDescription) {
         this.meditationTitle = meditationTitle;
         this.meditationImage = meditationImage;
         this.meditationVideo = meditationVideo;
+        this.duration = duration;
         this.meditationDescription = meditationDescription;
     }
 
@@ -68,6 +71,14 @@ public class Meditation implements Parcelable {
 
     public void setMeditationVideo(String meditationVideo) {
         this.meditationVideo = meditationVideo;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     public String getMeditationDescription() {

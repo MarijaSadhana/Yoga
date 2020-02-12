@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -29,10 +28,6 @@ import java.util.ArrayList;
 
 
 public class PranayamaFragment extends Fragment implements OnItemListener {
-
-    public static final String TAG = PranayamaFragment.class.getSimpleName();
-    public static final String TYPE = "PRANATAG";
-    public static final int PRANAYAMA = 0;
 
     RecyclerView recyclerView;
     PranayamaAdapter adapter;

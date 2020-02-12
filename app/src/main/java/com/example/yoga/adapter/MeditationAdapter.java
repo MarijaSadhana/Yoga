@@ -42,10 +42,10 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
     public void onBindViewHolder(@NonNull MeditationViewHolder holder, int position) {
 
         Meditation meditation = meditations.get(position);
-
         int imageId = context.getResources().getIdentifier(meditation.getMeditationImage(),"drawable", context.getPackageName());
         holder.image.setImageResource(imageId);
         holder.title.setText(meditation.getMeditationTitle());
+        holder.duration.setText(meditation.getDuration());
     }
 
     @Override
@@ -55,12 +55,13 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
 
     public class MeditationViewHolder extends RecyclerView.ViewHolder{
 
-        TextView title;
+        TextView title, duration;
         ImageView image;
 
         public MeditationViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title_meditation);
+            duration = itemView.findViewById(R.id.duration_numbers_medit);
             image = itemView.findViewById(R.id.audio_meditation);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +69,6 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
                 public void onClick(View v) {
                     if (onItemListener != null) {
                         onItemListener.onItemClick(getAdapterPosition());
-
                     }
                 }
             });

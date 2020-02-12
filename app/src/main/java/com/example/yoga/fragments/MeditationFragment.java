@@ -14,6 +14,7 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.yoga.R;
 import com.example.yoga.activity.DetailsMeditation;
@@ -29,9 +30,8 @@ import java.util.ArrayList;
 
 public class MeditationFragment extends Fragment implements OnItemListener {
 
-    public static final String TAG = PranayamaFragment.class.getSimpleName();
-
     RecyclerView recyclerView;
+    TextView duration;
     MeditationAdapter meditationAdapter;
     ArrayList<Meditation> meditations = new ArrayList<>();
     Gson gson;
@@ -46,7 +46,6 @@ public class MeditationFragment extends Fragment implements OnItemListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_meditation, container, false);
     }
 
@@ -54,6 +53,7 @@ public class MeditationFragment extends Fragment implements OnItemListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        duration = view.findViewById(R.id.duration_text_medit);
         recyclerView = view.findViewById(R.id.recycler_view_meditation);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         gson = new Gson();

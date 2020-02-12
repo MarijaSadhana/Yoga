@@ -30,8 +30,6 @@ import java.util.ArrayList;
 
 public class ProgramsFragment extends Fragment implements OnItemListener {
 
-    public static final String TAG = "PROGTAG";
-
     RecyclerView recyclerView;
     TextView durationText;
     ProgramsAdapter programsAdapter;

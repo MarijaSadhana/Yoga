@@ -12,7 +12,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.WebNewsActivity"></activity>
         <activity android:name=".activity.DetailProgram" />
-        <activity android:name=".activity.SeeAllAsanas" />
         <activity android:name=".activity.SetYogaAlarm" />
         <activity android:name=".activity.AboutUsActivity" />
         <activity android:name=".activity.DetailsAsana" />

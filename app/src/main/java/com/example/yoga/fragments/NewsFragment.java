@@ -2,7 +2,6 @@ package com.example.yoga.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -24,7 +23,6 @@ import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
 import com.example.yoga.interfaces.OnNewsClickListener;
 import com.example.yoga.interfaces.OnRefreshListener;
-import com.example.yoga.model.News;
 import com.example.yoga.model.NewsResponse;
 import com.google.gson.Gson;
 

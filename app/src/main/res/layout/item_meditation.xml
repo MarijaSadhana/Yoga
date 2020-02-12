@@ -17,7 +17,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/backgroundBlack">
 
         <ImageView
             android:id="@+id/audio_meditation"
@@ -30,13 +31,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentStart="true"
             android:text="Медитација"
-            android:textColor="@color/textColorBlack"
-            android:textSize="18sp"
+            android:textColor="@color/textColorWhite"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:paddingTop="@dimen/card_padding_top"
+            android:paddingStart="@dimen/card_padding_start"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/duration_text_medit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="Времетраење:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorWhite"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:paddingEnd="@dimen/card_padding_end"/>
+
+            <TextView
+                android:id="@+id/duration_numbers_medit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="10:28"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorWhite"
+                android:paddingBottom="@dimen/card_padding_bottom"
+                android:paddingEnd="@dimen/card_padding_end"/>
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 

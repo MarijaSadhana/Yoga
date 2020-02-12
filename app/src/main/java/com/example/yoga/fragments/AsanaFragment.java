@@ -20,7 +20,6 @@ import com.example.yoga.adapter.AsanaAdapter;
 import com.example.yoga.interfaces.OnAsanaClickListener;
 import com.example.yoga.model.AsanaResponse;
 import com.example.yoga.model.Asanas;
-import com.example.yoga.model.PranayamaResponse;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -28,8 +27,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class AsanaFragment extends Fragment implements OnAsanaClickListener {
-
-    public static final String TAG = AsanaFragment.class.getSimpleName();
 
     RecyclerView recyclerView;
     TextView asanaCategory;
@@ -47,7 +44,6 @@ public class AsanaFragment extends Fragment implements OnAsanaClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_asana, container, false);
     }
 
@@ -66,7 +62,6 @@ public class AsanaFragment extends Fragment implements OnAsanaClickListener {
 
         asanaAdapter = new AsanaAdapter(asanas, this, getActivity());
         recyclerView.setAdapter(asanaAdapter);
-
     }
 
     private String loadJSONFromAsset() {

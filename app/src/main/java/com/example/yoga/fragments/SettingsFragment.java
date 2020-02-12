@@ -22,8 +22,6 @@ import com.example.yoga.activity.SetYogaAlarm;
 
 public class SettingsFragment extends Fragment {
 
-    public static final String TAG = "SETTAG";
-
     LinearLayout alarmLayout, shareLayout, contactLayout, aboutUsLayout;
     ImageView fbImage, instaImage;
 
