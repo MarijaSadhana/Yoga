@@ -2,12 +2,15 @@ package com.example.yoga.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
 import com.example.yoga.interfaces.OnNewsClickListener;
 import com.example.yoga.interfaces.OnRefreshListener;
+import com.example.yoga.model.News;
 import com.example.yoga.model.NewsResponse;
 import com.google.gson.Gson;
 
@@ -30,6 +34,7 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -88,7 +93,7 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
         });
 
         OkHttpClient client = new OkHttpClient();
-        String url = "https://content.guardianapis.com/search?&q=meditation%20AND&20yoga&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
+        String url = "https://content.guardianapis.com/search?&q=yoga%20ANDmeditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
         Request request = new Request.Builder().url(url).get().build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -144,9 +149,9 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
     }
 
     @Override
-    public void onNewsClick(int position) {
+    public void onNewsClick(String url) {
         Intent intent = new Intent(getActivity(), WebNewsActivity.class);
-        intent.putExtra(WebNewsActivity.URL_EXTRA, position);
+        intent.putExtra(WebNewsActivity.URL_EXTRA, url);
         startActivity(intent);
     }
 }

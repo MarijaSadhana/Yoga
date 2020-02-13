@@ -13,9 +13,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.yoga.R;
-import com.example.yoga.common.Constants;
 import com.example.yoga.fragments.AsanaFragment;
 import com.example.yoga.fragments.MeditationFragment;
 import com.example.yoga.fragments.NewsFragment;
@@ -24,12 +24,8 @@ import com.example.yoga.fragments.ProgramsFragment;
 import com.example.yoga.fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
 
-//import static com.example.yoga.fragments.AsanaFragment.TYPE;
-
-
 public class MainActivity extends AppCompatActivity {
 
-//    ImageView asanaImage, pranayamaImage, meditationImage, programsImage, newsImage, settingsImage;
     DrawerLayout drawerLayout;
     LinearLayout layoutAsana, layoutPranayama, layoutMeditation, layoutPrograms, layoutNews, layoutSettings;
     NavigationView navigationView;
@@ -122,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new AsanaFragment()).commit();
     }
 
-
     public void onLayoutClick(View view) {
         Fragment fragment = null;
         String tag = null;
@@ -130,27 +125,21 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.layout_asana:
                 fragment = AsanaFragment.newInstance();
-//                tag = "ASANATAG";
                 break;
             case R.id.layout_pranayama:
                 fragment = PranayamaFragment.newInstance();
-//                tag = "PRANATAG";
                 break;
             case R.id.layout_meditation:
                 fragment = MeditationFragment.newInstance();
-//                tag = "MEDTAG";
                 break;
             case R.id.layout_programs:
                 fragment = ProgramsFragment.newInstance();
-//                tag = "PROGTAG";
                 break;
             case R.id.layout_news:
                 fragment = NewsFragment.newInstance();
-//                tag = "NEWSTAG";
                 break;
             case R.id.layout_settings:
                 fragment = SettingsFragment.newInstance();
-//                tag = "SETTAG";
                 break;
         }
 
@@ -165,5 +154,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

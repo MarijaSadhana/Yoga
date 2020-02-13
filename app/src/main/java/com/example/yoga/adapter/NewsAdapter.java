@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.yoga.R;
 import com.example.yoga.interfaces.OnNewsClickListener;
 import com.example.yoga.model.News;
+import com.example.yoga.model.NewsResponse;
 import com.example.yoga.model.Result;
 
 import java.util.ArrayList;
@@ -40,10 +41,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
 
-        Result result = results.get(position);
+        final Result result = results.get(position);
         holder.webTitle.setText(result.getWebTitle());
         holder.pillarName.setText(result.getPillarName());
         holder.webPublicationDate.setText(result.getWebPublicationDate());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onNewsClickListener != null) {
+                    onNewsClickListener.onNewsClick(result.getWebUrl());
+                }
+            }
+        });
     }
 
     @Override
@@ -60,15 +70,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             webTitle = itemView.findViewById(R.id.web_title);
             pillarName = itemView.findViewById(R.id.pillar_name);
             webPublicationDate = itemView.findViewById(R.id.web_publication_date);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onNewsClickListener != null) {
-                        onNewsClickListener.onNewsClick(getAdapterPosition());
-                    }
-                }
-            });
         }
     }
 }
