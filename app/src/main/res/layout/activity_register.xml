@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RegisterActivity"
+    android:orientation="vertical"
+    android:background="@color/backgroundGrey">
+
+    <EditText
+        android:id="@+id/emailField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:hint="Е-ПОШТА"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ЛОЗИНКА"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:layout_margin="20dp"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/nameField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ИМЕ и ПРЕЗИМЕ"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/cityField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ГРАД"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:layout_margin="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ЗАЧУВАЈ"
+        android:textColor="@color/textColorPurple"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:onClick="onUserRegster"/>
+
+</LinearLayout>

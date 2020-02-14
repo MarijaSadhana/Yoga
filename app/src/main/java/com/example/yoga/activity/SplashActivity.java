@@ -2,6 +2,7 @@ package com.example.yoga.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,9 @@ import com.example.yoga.R;
 public class SplashActivity extends Activity {
 
     VideoView videoView;
+    String email;
+    String password;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +46,26 @@ public class SplashActivity extends Activity {
     }
 
     private void startNextActivity() {
-        if (isFinishing())
-            return;
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+//        if (isFinishing())
+//            return;
+//        startActivity(new Intent(this, LoginActivity.class));
+//        finish();
+
+        sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+
+        email = sharedPreferences.getString("email", null);
+        password = sharedPreferences.getString("password", null);
+
+        if (sharedPreferences.getBoolean("isLogedIn", false)) {
+            Intent j = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(j);
+            finish();
+        } else {
+            Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 }
+
 

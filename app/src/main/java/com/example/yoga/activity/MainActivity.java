@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.addDrawerListener(toggle);
         }
         toggle.syncState();
-
 
         navigationView = findViewById(R.id.navigation_view);
         addFragment();

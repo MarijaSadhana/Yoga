@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGrey"
+    tools:context=".activity.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="80dp">
+
+        <EditText
+            android:id="@+id/emailField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:hint="EMAIL"/>
+
+        <EditText
+            android:id="@+id/passwordField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:hint="PASSWORD"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="ЛОГИРАЈ СЕ"
+            android:textColor="@color/textColorPurple"
+            android:textStyle="bold"
+            android:onClick="onLoginClick"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="320dp"
+        android:gravity="center"
+        android:onClick="onRegisterClick"
+        android:text="РЕГИСТРИРАЈ СЕ"
+        android:textColor="@color/textColorPurple"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:onClick="onSkipClick"
+        android:text="ПРОДОЛЖИ БЕЗ ЛОГИРАЊЕ"
+        android:textColor="@color/textColorPurple"
+        android:textStyle="bold" />
+
+</RelativeLayout>
