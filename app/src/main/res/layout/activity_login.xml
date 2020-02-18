@@ -19,8 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:backgroundTint="@color/purple"
             android:textCursorDrawable="@drawable/cursor_color"
-            android:hint="EMAIL"/>
+            android:hint="@string/email_hint"/>
 
         <EditText
             android:id="@+id/passwordField"
@@ -28,16 +29,18 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:textCursorDrawable="@drawable/cursor_color"
-            android:hint="PASSWORD"
+            android:hint="@string/password_hint"
+            android:backgroundTint="@color/purple"
             android:inputType="textPassword"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="ЛОГИРАЈ СЕ"
+            android:text="@string/login_hint"
             android:textColor="@color/textColorPurple"
             android:textStyle="bold"
+            android:textAllCaps="true"
             android:onClick="onLoginClick"/>
 
     </LinearLayout>
@@ -50,7 +53,8 @@
         android:layout_marginBottom="320dp"
         android:gravity="center"
         android:onClick="onRegisterClick"
-        android:text="РЕГИСТРИРАЈ СЕ"
+        android:text="@string/register_hint"
+        android:textAllCaps="true"
         android:textColor="@color/textColorPurple"
         android:textStyle="bold" />
 
@@ -62,8 +66,9 @@
         android:layout_marginBottom="80dp"
         android:gravity="center"
         android:onClick="onSkipClick"
-        android:text="ПРОДОЛЖИ БЕЗ ЛОГИРАЊЕ"
+        android:text="@string/skip_hint"
+        android:textAllCaps="true"
         android:textColor="@color/textColorPurple"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
 </RelativeLayout>

@@ -37,19 +37,15 @@ public class SplashActivity extends Activity {
 
         videoView.start();
 
-//        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//            @Override
-//            public void onPrepared(MediaPlayer mediaPlayer) {
-//                mediaPlayer.setVolume(0,0);
-//            }
-//        });
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setVolume(0,0);
+            }
+        });
     }
 
     private void startNextActivity() {
-//        if (isFinishing())
-//            return;
-//        startActivity(new Intent(this, LoginActivity.class));
-//        finish();
 
         sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
 

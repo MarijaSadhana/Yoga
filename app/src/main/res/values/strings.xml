@@ -33,5 +33,13 @@
     <string name="news_category">Category:</string>
     <string name="date_published">Date published:</string>
     <string name="text_error">Error</string>
+    <string name="email_hint">е-пошта</string>
+    <string name="password_hint">лозинка</string>
+    <string name="login_hint">логирај се</string>
+    <string name="register_hint">регистрирај се</string>
+    <string name="skip_hint">продолжи</string>
+    <string name="name_hint">име и презиме</string>
+    <string name="city_hint">град</string>
+    <string name="save_hint">ЗАЧУВАЈ</string>
 
 </resources>

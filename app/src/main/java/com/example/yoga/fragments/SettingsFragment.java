@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 
 import com.example.yoga.R;
 import com.example.yoga.activity.AboutUsActivity;
-import com.example.yoga.activity.SetYogaAlarm;
+import com.example.yoga.activity.SetAlarm;
 
 public class SettingsFragment extends Fragment {
 
@@ -52,7 +52,7 @@ public class SettingsFragment extends Fragment {
         alarmLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent alarmIntent = new Intent(getActivity(), SetYogaAlarm.class);
+                Intent alarmIntent = new Intent(getActivity(), SetAlarm.class);
                 startActivity(alarmIntent);
             }
         });

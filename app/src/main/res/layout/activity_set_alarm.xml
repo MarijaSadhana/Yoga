@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_start"
-        android:textColor="@color/textColorGray"/>
+    android:orientation="vertical"
+    tools:context=".activity.SetAlarm">
 
     <TextView
-        android:id="@+id/msg1"
+        android:id="@+id/txtAlarmSet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Избери време од денот \nкога сакаш да вежбаш јога"
+        android:textAllCaps="true"
+        android:textColor="@color/purple"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="50dp"/>
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:numbersSelectorColor="@color/grey"
+        android:numbersTextColor="@color/textColorPurple"
+        android:headerBackground="@color/purple"
+        android:numbersInnerTextColor="@color/grey"/>
+
+    <Button
+        android:id="@+id/btn_startAlarm"
+        android:text="активирај аларм"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/textColorPurple"
+        android:onClick="startAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/textColorPurple"
-        android:textSize="100sp"/>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_stop"
-        android:textColor="@color/textColorGray"/>
-
-    <TextView
-        android:id="@+id/msg2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/textColorPurple"
-        android:textSize="50sp"
-        android:gravity="center"/>
+        android:layout_marginTop="50dp"/>
 
 </LinearLayout>

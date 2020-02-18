@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="mainColorPurple">#CE49F1</color>
+    <color name="mainColorPurple">#DFD81BA2</color>
     <color name="mainColorGray">#68858181</color>
     <color name="menuItemColor">#000000</color>
-    <color name="menuItemColorPurple">#CE49F1</color>
+    <color name="menuItemColorPurple">#DFD81BA2</color>
     <color name="menuItemColorWhite">#ffffff</color>
     <color name="backgroundWhite">#ffffff</color>
     <color name="backgroundBlack">#000000</color>
     <color name="backgroundGrey">#68858181</color>
-    <color name="backgroundPurple">#CE49F1</color>
+    <color name="backgroundPurple">#DFD81BA2</color>
     <color name="shadowItemColor">#46000000</color>
 
-    <color name="textColorPurple">#CE49F1</color>
+    <color name="textColorPurple">#DFD81BA2</color>
     <color name="textColorGray">#E1858181</color>
     <color name="textColorWhite">#ffffff</color>
     <color name="textColorBlack">#000000</color>
 
     <color name="grey">#68858181</color>
-    <color name="purple">#CE49F1</color>
+    <color name="purple">#DFD81BA2</color>
     <color name="white">#ffffff</color>
     <color name="backroundText">#E0E1E2</color>
 

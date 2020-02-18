@@ -50,7 +50,7 @@
                 android:paddingTop="40dp"
                 android:textSize="22sp"
                 android:gravity="center"
-                android:textColor="@color/textColorGray"
+                android:textColor="@color/textColorPurple"
                 android:textStyle="bold"
                 android:layout_toRightOf="@+id/aboutUs_cover"/>
 
