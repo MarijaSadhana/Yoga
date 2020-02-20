@@ -45,7 +45,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         holder.webTitle.setText(result.getWebTitle());
         holder.pillarName.setText(result.getPillarName());
         holder.webPublicationDate.setText(result.getWebPublicationDate());
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

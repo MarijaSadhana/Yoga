@@ -1,101 +1,75 @@
 package com.example.yoga.activity;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yoga.R;
-import com.example.yoga.model.User;
+import com.example.yoga.activity.MainActivity;
+import com.example.yoga.activity.RegisterActivity;
+import com.example.yoga.db.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
-    final int REGISTER_REQUEST = 1000;
-
-    String emailValue;
-    String passwordValue;
-
-    EditText emailField;
-    EditText passwordField;
-    SharedPreferences sharedPreferences;
-
-    User user;
+    EditText mTextUsername;
+    EditText mTextPassword;
+    Button mButtonLogin;
+    TextView mTextViewRegister;
+    TextView skipText;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailField = (EditText) findViewById(R.id.emailField);
-        passwordField = (EditText) findViewById(R.id.passwordField);
+        db = new DatabaseHelper(this);
+        mTextUsername = (EditText)findViewById(R.id.edittext_username);
+        mTextPassword = (EditText)findViewById(R.id.edittext_password);
+        mButtonLogin = (Button)findViewById(R.id.button_login);
+        skipText = (TextView) findViewById(R.id.skipText);
+        mTextViewRegister = (TextView)findViewById(R.id.textview_register);
 
-        sharedPreferences = getSharedPreferences("MY_SHARED_PREF",MODE_PRIVATE);
-
-        emailValue = sharedPreferences.getString("email",null);
-        passwordValue = sharedPreferences.getString("password",null);
-
-    }
-
-    public void onLoginClick(View view) {
-
-        if(emailValue == null || passwordValue == null){
-            Toast.makeText(this,
-                    "Регистрирај се!",
-                    Toast.LENGTH_LONG).show();
-        } else if(emailField.getText().toString().equals("") || passwordField.getText().toString().equals("")){
-            Toast.makeText(this,
-                    "Пополни ги полињата за меил и лозинка!",
-                    Toast.LENGTH_LONG).show();
-        } else {
-            if(emailValue.equals(emailField.getText().toString()) && passwordValue.equals(passwordField.getText().toString())){
-                Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
-                loginIntent.putExtra("user", user);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("email",user.getEmail());
-                editor.putString("password",user.getPassword());
-                editor.putString("name",user.getName());
-                editor.putString("city",user.getCity());
-                editor.putBoolean("isLogedIn",true);
-                editor.commit();
-
-                startActivity(loginIntent);
-
-            } else {
-                Toast.makeText(this,
-                        "Погрешно внесен меил и лозинка!",
-                        Toast.LENGTH_LONG).show();
+        skipText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent skipIntent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(skipIntent);
             }
-        }
-    }
+        });
 
-    public void onRegisterClick(View view) {
-        Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-        startActivityForResult(registerIntent, REGISTER_REQUEST);
-    }
+        mTextViewRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(registerIntent);
+            }
+        });
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode == RESULT_OK){
-            if(requestCode == REGISTER_REQUEST){
-
-                if(data.hasExtra("user")){
-                    user = (User) data.getParcelableExtra("user");
-                    Log.d("USER NAME", user.getName());
-                    emailValue = user.getEmail();
-                    passwordValue = user.getPassword();
+        mButtonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user = mTextUsername.getText().toString().trim();
+                String pwd = mTextPassword.getText().toString().trim();
+                Boolean res = db.checkUser(user, pwd);
+                if(res)
+                {
+                    Intent mainPage = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(mainPage);
+                }
+                else
+                {
+                    Toast.makeText(LoginActivity.this,"Грешка при најава",Toast.LENGTH_SHORT).show();
                 }
             }
-        }
-    }
-
-    public void onSkipClick(View view) {
-        Intent skipIntent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(skipIntent);
+        });
     }
 }

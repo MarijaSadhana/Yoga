@@ -40,7 +40,7 @@ public class ProgramsAdapter extends RecyclerView.Adapter<ProgramsAdapter.Progra
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProgramsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ProgramsViewHolder holder, final int position) {
         Programs program = programs.get(position);
 
         int imageId = context.getResources().getIdentifier(program.getProgramImage(), "drawable", context.getPackageName());

@@ -1,7 +1,9 @@
 package com.example.yoga.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.yoga.R;
@@ -27,13 +30,18 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Objects;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class ProgramsFragment extends Fragment implements OnItemListener {
 
     RecyclerView recyclerView;
     TextView durationText;
+    ImageView favoriteImg;
     ProgramsAdapter programsAdapter;
     ArrayList<Programs> programs = new ArrayList<>();
+    SharedPreferences sharedPreferences;
     Gson gson;
 
     public ProgramsFragment(){}
@@ -54,10 +62,44 @@ public class ProgramsFragment extends Fragment implements OnItemListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         durationText = view.findViewById(R.id.duration_text);
+        favoriteImg = view.findViewById(R.id.favImg);
         recyclerView = view.findViewById(R.id.recycler_view_programs);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         gson = new Gson();
         String json = loadJSONFromAsset();
+
+//        favoriteImg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                boolean isFavourite = readState();
+//
+//                if (isFavourite) {
+//                    favoriteImg.setBackgroundResource(R.drawable.ic_favorite_blank);
+//                    isFavourite = false;
+//                    saveState(isFavourite);
+//
+//                } else {
+//                    favoriteImg.setBackgroundResource(R.drawable.ic_favorite_purple);
+//                    isFavourite = true;
+//                    saveState(isFavourite);
+//                }
+//            }
+
+//            private void saveState(boolean isFavourite) {
+//                SharedPreferences aSharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences(
+//                        "Favourite", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor aSharedPreferencesEdit = aSharedPreferences
+//                        .edit();
+//                aSharedPreferencesEdit.putBoolean("State", isFavourite);
+//                aSharedPreferencesEdit.apply();
+//            }
+//
+//            private boolean readState() {
+//                SharedPreferences aSharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences(
+//                        "Favourite", Context.MODE_PRIVATE);
+//                return aSharedPreferences.getBoolean("State", true);
+//            }
+//        });
 
         ProgramsResponse programsResponse = gson.fromJson(json, ProgramsResponse.class);
         programs = programsResponse.getPrograms();

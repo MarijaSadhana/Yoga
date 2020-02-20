@@ -3,6 +3,7 @@
     package="com.example.yoga">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,7 +14,6 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SetAlarm"></activity>
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.WebNewsActivity" />
@@ -37,9 +37,6 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".activity.AlarmBroadcastManager"
-            android:enabled="true"
-            android:exported="true"/>
     </application>
 
 </manifest>

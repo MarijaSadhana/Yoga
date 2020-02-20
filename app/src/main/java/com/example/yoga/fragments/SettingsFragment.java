@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 
 import com.example.yoga.R;
 import com.example.yoga.activity.AboutUsActivity;
-import com.example.yoga.activity.SetAlarm;
 
 public class SettingsFragment extends Fragment {
 
@@ -49,13 +48,13 @@ public class SettingsFragment extends Fragment {
         fbImage = view.findViewById(R.id.fb_icon);
         instaImage = view.findViewById(R.id.insta_icon);
 
-        alarmLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent alarmIntent = new Intent(getActivity(), SetAlarm.class);
-                startActivity(alarmIntent);
-            }
-        });
+//        alarmLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent alarmIntent = new Intent(getActivity(), ReminderActivity.class);
+//                startActivity(alarmIntent);
+//            }
+//        });
 
         shareLayout.setOnClickListener(new View.OnClickListener() {
             @Override
