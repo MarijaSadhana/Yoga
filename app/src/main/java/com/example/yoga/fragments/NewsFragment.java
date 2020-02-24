@@ -2,6 +2,7 @@ package com.example.yoga.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,6 +56,7 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
     Gson gson;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
+    boolean isLoading = false;
 
     public NewsFragment() {}
 
@@ -81,6 +83,8 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getActivity(), news, this);
         recyclerView.setAdapter(newsAdapter);
+//        populateData();
+        initScrollListener();
 
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -146,6 +150,63 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
 
     @Override
     public void onRefresh() {
+    }
+
+//    private void populateData() {
+//        int i = 0;
+//        while (i < 10) {
+//            news.add("News " + i);
+//            i++;
+//        }
+//    }
+
+    private void initScrollListener() {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+
+                if (!isLoading) {
+                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == news.size() - 1) {
+                        //bottom of list!
+                        loadMore();
+                        isLoading = true;
+                    }
+                }
+            }
+        });
+    }
+
+    private void loadMore() {
+        news.add(null);
+        newsAdapter.notifyItemInserted(news.size() - 1);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                news.remove(news.size() - 1);
+                int scrollPosition = news.size();
+                newsAdapter.notifyItemRemoved(scrollPosition);
+                int currentSize = scrollPosition;
+                int nextLimit = currentSize + 10;
+
+                while (currentSize - 1 < nextLimit) {
+                    news.add("News " + currentSize);
+                    currentSize++;
+                }
+
+                newsAdapter.notifyDataSetChanged();
+                isLoading = false;
+            }
+        }, 2000);
     }
 
     @Override

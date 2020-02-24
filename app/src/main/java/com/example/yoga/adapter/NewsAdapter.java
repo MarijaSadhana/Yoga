@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,13 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yoga.R;
 import com.example.yoga.interfaces.OnNewsClickListener;
-import com.example.yoga.model.News;
-import com.example.yoga.model.NewsResponse;
 import com.example.yoga.model.Result;
 
 import java.util.ArrayList;
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
+public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static final int VIEW_TYPE_ITEM = 0;
+    private static final int VIEW_TYPE_LOADING = 1;
 
     ArrayList<Result> results;
     LayoutInflater inflater;
@@ -33,31 +35,47 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @NonNull
     @Override
-    public NewsAdapter.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_news, parent, false);
-        return new NewsViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        if (viewType == VIEW_TYPE_ITEM) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news, parent, false);
+            return new NewsViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_loading, parent, false);
+            return new LoadingHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-
-        final Result result = results.get(position);
-        holder.webTitle.setText(result.getWebTitle());
-        holder.pillarName.setText(result.getPillarName());
-        holder.webPublicationDate.setText(result.getWebPublicationDate());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onNewsClickListener != null) {
-                    onNewsClickListener.onNewsClick(result.getWebUrl());
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof NewsViewHolder) {
+            NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
+            final Result result = results.get(position);
+            newsViewHolder.webTitle.setText(result.getWebTitle());
+            newsViewHolder.pillarName.setText(result.getPillarName());
+            newsViewHolder.webPublicationDate.setText(result.getWebPublicationDate());
+            newsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onNewsClickListener != null) {
+                        onNewsClickListener.onNewsClick(result.getWebUrl());
+                    }
                 }
-            }
-        });
+            });
+        } else if (holder instanceof LoadingHolder) {
+            LoadingHolder loadingHolder = (LoadingHolder) holder;
+            loadingHolder.progressBarLoad.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return results.size();
+        return results == null ? 0 : results.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return results.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
     }
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
@@ -69,6 +87,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             webTitle = itemView.findViewById(R.id.web_title);
             pillarName = itemView.findViewById(R.id.pillar_name);
             webPublicationDate = itemView.findViewById(R.id.web_publication_date);
+        }
+    }
+
+    public class LoadingHolder extends RecyclerView.ViewHolder {
+
+        ProgressBar progressBarLoad;
+
+        public LoadingHolder(@NonNull View itemView) {
+            super(itemView);
+            progressBarLoad = itemView.findViewById(R.id.progressBarLoad);
         }
     }
 }
