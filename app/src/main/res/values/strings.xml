@@ -46,4 +46,12 @@
     <string name="password_cnf">потврди лозинка</string>
     <string name="skip">прескокни</string>
 
+
+
+    <string name="sett_reminder_header">Постави аларм</string>
+    <string name="sett_reminder_label">Активирај аларм</string>
+    <string name="sett_reminder_time_label">Избери време за јога</string>
+    <string name="sett_reminder_time_content">08 : 00 PM</string>
+    <string name="RemindMe">Време за јога</string>
+
 </resources>

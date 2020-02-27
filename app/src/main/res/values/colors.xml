@@ -22,12 +22,11 @@
     <color name="backroundText">#E0E1E2</color>
 
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!--switch color-->
+    <color name="thumb_active">#DFD81BA2</color>
+    <color name="track_active">#66953699</color>
 
-    <color name="color_preloader_start">#fdb6b6</color>
-    <color name="color_preloader_center">#fdb6b6</color>
-    <color name="color_preloader_end">#ffffff</color>
+    <color name="thumb_inactive">#A5A5A5</color>
+    <color name="track_inactive">#66A5A5A5</color>
 
 </resources>
