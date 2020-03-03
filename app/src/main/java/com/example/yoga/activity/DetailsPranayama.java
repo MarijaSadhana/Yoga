@@ -2,31 +2,16 @@ package com.example.yoga.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.example.yoga.R;
 import com.example.yoga.model.Pranayama;
-import com.example.yoga.model.PranayamaResponse;
-import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 
 public class DetailsPranayama extends AppCompatActivity {
 
-//    VideoView pranaVideo;
     ImageView coverImage, backArrow;
     TextView pranaTitle, pranaSanskritTitle, pranaDetails;
     Pranayama pranayama;
@@ -36,7 +21,6 @@ public class DetailsPranayama extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_pranayama);
 
-//        pranaVideo = findViewById(R.id.pranayama_video);
         coverImage = findViewById(R.id.pranayama_cover_image);
         backArrow = findViewById(R.id.backArrow);
         pranaTitle = findViewById(R.id.pranayama_title);
@@ -50,7 +34,10 @@ public class DetailsPranayama extends AppCompatActivity {
             pranaDetails.setText(pranayama.getPranayamaDetails());
         }
 
-        String imgName = pranayama.getPranayamaImage();
+        String imgName = null;
+        if (pranayama != null) {
+            imgName = pranayama.getPranayamaImage();
+        }
         int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
         coverImage.setImageResource(resID);
     }
@@ -58,6 +45,5 @@ public class DetailsPranayama extends AppCompatActivity {
     public void onBackClick(View view) {
         finish();
     }
-
 }
 

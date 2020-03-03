@@ -35,7 +35,10 @@ public class DetailsMeditation extends AppCompatActivity {
             meditationDescription.setText(meditation.getMeditationDescription());
         }
 
-        String imgName = meditation.getMeditationImage();
+        String imgName = null;
+        if (meditation != null) {
+            imgName = meditation.getMeditationImage();
+        }
         int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
         meditationCover.setImageResource(resID);
 

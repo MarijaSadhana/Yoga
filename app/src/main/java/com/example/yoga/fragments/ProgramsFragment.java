@@ -1,7 +1,5 @@
 package com.example.yoga.fragments;
 
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -30,9 +28,6 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Objects;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class ProgramsFragment extends Fragment implements OnItemListener {
 
@@ -54,7 +49,6 @@ public class ProgramsFragment extends Fragment implements OnItemListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_programs, container, false);
     }
 
@@ -129,6 +123,5 @@ public class ProgramsFragment extends Fragment implements OnItemListener {
         Intent intent = new Intent(getActivity(), DetailProgram.class);
         intent.putExtra("Programs", (Parcelable) programs.get(position));
         startActivity(intent);
-
     }
 }

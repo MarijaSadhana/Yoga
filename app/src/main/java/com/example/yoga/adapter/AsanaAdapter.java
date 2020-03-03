@@ -1,6 +1,5 @@
 package com.example.yoga.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yoga.R;
-import com.example.yoga.fragments.AsanaFragment;
 import com.example.yoga.interfaces.OnAsanaClickListener;
 import com.example.yoga.model.Asanas;
 

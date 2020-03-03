@@ -1,6 +1,5 @@
 package com.example.yoga.fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-{"numberOfItems": 8,
+{"numberOfItems": 9,
   "meditations": [
     {
       "meditationTitle": "Водич за почетници",
@@ -55,6 +55,14 @@
       "meditationVideo": "3DalvP2irHM",
       "duration": "14:47",
       "meditationDescription": "Нурни длабоко во фонтана со исцелувачка вода, која ќе ја измие твојата болка и научи како твоето тело комуницира со тебе преку оваа болка."
+    },
+    {
+      "meditationTitle": "Самодоверба",
+      "meditationImage": "samodoverba",
+      "meditationVideo": "8Z6YFcMEcdg",
+      "duration": "15:04",
+      "meditationDescription": "Доживеј состојба на природна самодоверба, замислувајќи си како управуваш со ситуации кои се предизвик за тебе и тоа го правиш со достоинство и самоувереност."
     }
+
   ]
 }

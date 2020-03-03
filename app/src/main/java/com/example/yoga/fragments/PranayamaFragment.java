@@ -1,6 +1,5 @@
 package com.example.yoga.fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -25,7 +24,6 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
 
 public class PranayamaFragment extends Fragment implements OnItemListener {
 

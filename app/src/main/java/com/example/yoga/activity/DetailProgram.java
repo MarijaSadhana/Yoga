@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.yoga.R;
-import com.example.yoga.model.Meditation;
 import com.example.yoga.model.Programs;
 
 public class DetailProgram extends AppCompatActivity {
@@ -36,7 +35,10 @@ public class DetailProgram extends AppCompatActivity {
             programDescription.setText(program.getProgramDescription());
         }
 
-        String imgName = program.getProgramImage();
+        String imgName = null;
+        if (program != null) {
+            imgName = program.getProgramImage();
+        }
         int resID = getResources().getIdentifier(imgName , "drawable", getPackageName());
         programCover.setImageResource(resID);
 

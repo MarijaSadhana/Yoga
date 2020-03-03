@@ -1,6 +1,5 @@
 package com.example.yoga.fragments;
 
-
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;

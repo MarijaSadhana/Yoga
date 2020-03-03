@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yoga.R;
 import com.example.yoga.interfaces.OnItemListener;
-import com.example.yoga.model.Meditation;
 import com.example.yoga.model.Programs;
 
 import java.util.ArrayList;
@@ -42,7 +41,6 @@ public class ProgramsAdapter extends RecyclerView.Adapter<ProgramsAdapter.Progra
     @Override
     public void onBindViewHolder(@NonNull final ProgramsViewHolder holder, final int position) {
         Programs program = programs.get(position);
-
         int imageId = context.getResources().getIdentifier(program.getProgramImage(), "drawable", context.getPackageName());
         holder.programImage.setImageResource(imageId);
         holder.programTitle.setText(program.getProgramTitle());

@@ -2,19 +2,15 @@ package com.example.yoga.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yoga.R;
-import com.example.yoga.activity.MainActivity;
-import com.example.yoga.activity.RegisterActivity;
 import com.example.yoga.db.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity {
@@ -59,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String user = mTextUsername.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
-                Boolean res = db.checkUser(user, pwd);
+                boolean res = db.checkUser(user, pwd);
                 if(res)
                 {
                     Intent mainPage = new Intent(LoginActivity.this, MainActivity.class);

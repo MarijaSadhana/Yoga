@@ -70,12 +70,9 @@ public class PranayamaAdapter extends RecyclerView.Adapter<PranayamaAdapter.Pran
                 public void onClick(View v) {
                     if (onItemListener != null) {
                         onItemListener.onItemClick(getAdapterPosition());
-
                     }
                 }
             });
         }
-
     }
-
 }

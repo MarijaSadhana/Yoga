@@ -2,6 +2,7 @@ package com.example.yoga.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -17,6 +18,7 @@ public class WebNewsActivity extends AppCompatActivity {
     WebView webView;
     TextView error;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -3,15 +3,12 @@ package com.example.yoga.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,25 +23,18 @@ import com.example.yoga.R;
 import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
 import com.example.yoga.interfaces.OnNewsClickListener;
-import com.example.yoga.interfaces.OnRefreshListener;
-import com.example.yoga.model.News;
 import com.example.yoga.model.NewsResponse;
 import com.google.gson.Gson;
-
-
 import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsClickListener {
+public class NewsFragment extends Fragment implements OnNewsClickListener {
 
     public static final String TAG = "NEWSTAG";
 
@@ -135,21 +125,17 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Check if user triggered a refresh:
+        // Proverka dali korisnikot napravil refresh:
         if (item.getItemId() == R.id.menu_refresh) {
             Log.i(TAG, "Refresh menu item selected");
 
             swipeRefreshLayout.setRefreshing(true);
 
-            // Start the refresh background task.
+            // Start na refresh background task
             myUpdateOperation();
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onRefresh() {
     }
 
 //    private void populateData() {
@@ -172,10 +158,9 @@ public class NewsFragment extends Fragment implements OnRefreshListener, OnNewsC
                 super.onScrolled(recyclerView, dx, dy);
 
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-
                 if (!isLoading) {
                     if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == news.size() - 1) {
-                        //bottom of list!
+                        //na krajot od listata
                         loadMore();
                         isLoading = true;
                     }

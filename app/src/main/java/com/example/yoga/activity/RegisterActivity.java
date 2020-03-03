@@ -73,7 +73,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "Грешка при регистрација", Toast.LENGTH_SHORT).show();
                             }
                         }
-
                     }
                 }
             }

@@ -2,15 +2,8 @@ package com.example.yoga.activity;
 
 
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.ClipboardManager;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,13 +16,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 
 import com.example.yoga.R;
 import com.example.yoga.db.LocalData;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -70,14 +61,13 @@ public class SetAlarm extends AppCompatActivity {
                 localData.setReminderStatus(isChecked);
                 if (isChecked) {
                     Log.d(TAG, "onCheckedChanged: true");
-                    NotificationScheduler.setReminder(SetAlarm.this, AlarmReceiver.class, localData.get_hour(), localData.get_min());
+                    NotificationScheduler.setReminder(SetAlarm.this, localData.get_hour(), localData.get_min());
                     ll_set_time.setAlpha(1f);
                 } else {
                     Log.d(TAG, "onCheckedChanged: false");
-                    NotificationScheduler.cancelReminder(SetAlarm.this, AlarmReceiver.class);
+                    NotificationScheduler.cancelReminder(SetAlarm.this);
                     ll_set_time.setAlpha(0.4f);
                 }
-
             }
         });
 
@@ -89,7 +79,6 @@ public class SetAlarm extends AppCompatActivity {
             }
         });
     }
-
 
     private void showTimePickerDialog(int h, int m) {
 
@@ -105,14 +94,13 @@ public class SetAlarm extends AppCompatActivity {
                         localData.set_hour(hour);
                         localData.set_min(min);
                         tvTime.setText(getFormatedTime(hour, min));
-                        NotificationScheduler.setReminder(SetAlarm.this, AlarmReceiver.class, localData.get_hour(), localData.get_min());
+                        NotificationScheduler.setReminder(SetAlarm.this, localData.get_hour(), localData.get_min());
 
                     }
                 }, h, m, false);
 
         builder.setCustomTitle(view);
         builder.show();
-
     }
 
     public String getFormatedTime(int h, int m) {
@@ -122,12 +110,12 @@ public class SetAlarm extends AppCompatActivity {
         String oldDateString = h + ":" + m;
         String newDateString = "";
 
-        try {
+        try{
             SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT, getCurrentLocale());
             Date d = sdf.parse(oldDateString);
             sdf.applyPattern(NEW_FORMAT);
             newDateString = sdf.format(d);
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
 
@@ -139,7 +127,6 @@ public class SetAlarm extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return getResources().getConfiguration().getLocales().get(0);
         } else {
-            //noinspection deprecation
             return getResources().getConfiguration().locale;
         }
     }

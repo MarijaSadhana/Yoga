@@ -21,7 +21,7 @@ public class LocalData {
         prefsEditor.apply();
     }
 
-    // Settings Page Set Reminder
+    // Postavuvanje potsetnik
     public boolean getReminderStatus()
     {
         return appSharedPrefs.getBoolean(reminderStatus, false);
@@ -32,11 +32,10 @@ public class LocalData {
         prefsEditor.commit();
     }
 
-    // Settings Page Reminder Time (Hour)
-
+    // Vreme koga e setiran potsetnikot (cas)
     public int get_hour()
     {
-        return appSharedPrefs.getInt(hour, 20);
+        return appSharedPrefs.getInt(hour, 8);
     }
 
     public void set_hour(int h){
@@ -44,8 +43,7 @@ public class LocalData {
         prefsEditor.commit();
     }
 
-    // Settings Page Reminder Time (Minutes)
-
+    // Vreme kog e setiran potsetnikot (minuti)
     public int get_min()
     {
         return appSharedPrefs.getInt(min, 0);
@@ -60,5 +58,4 @@ public class LocalData {
         prefsEditor.clear();
         prefsEditor.commit();
     }
-
 }
