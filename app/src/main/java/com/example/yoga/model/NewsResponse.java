@@ -1,20 +1,40 @@
 package com.example.yoga.model;
 
-import android.os.Parcel;
+import java.util.ArrayList;
 
 public class NewsResponse {
 
-    public Response response;
+    public String status;
+    public Integer totalResults;
+    public ArrayList<Articles> articles;
 
-    public NewsResponse(Parcel in, Response response) {
-        this.response = response;
+    public NewsResponse(String status, Integer totalResults, ArrayList<Articles> articles) {
+        this.status = status;
+        this.totalResults = totalResults;
+        this.articles = articles;
     }
 
-    public Response getResponse() {
-        return response;
+    public String getStatus() {
+        return status;
     }
 
-    public void setResponse(Response response) {
-        this.response = response;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getTotalResults() {
+        return totalResults;
+    }
+
+    public void setTotalResults(Integer totalResults) {
+        this.totalResults = totalResults;
+    }
+
+    public ArrayList<Articles> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(ArrayList<Articles> articles) {
+        this.articles = articles;
     }
 }

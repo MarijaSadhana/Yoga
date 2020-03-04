@@ -5,20 +5,46 @@ import android.os.Parcelable;
 
 public class News implements Parcelable {
 
-    String webTitle, pillarName, webPublicationDate, webUrl;
+    String title, url, publishedAt;
 
-    public News(String webTitle, String pillarName, String webPublicationDate, String webUrl) {
-        this.webTitle = webTitle;
-        this.pillarName = pillarName;
-        this.webPublicationDate = webPublicationDate;
-        this.webUrl = webUrl;
+    public News(String title, String url, String publishedAt) {
+        this.title = title;
+        this.url = url;
+        this.publishedAt = publishedAt;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getPublishedAt() {
+        return publishedAt;
+    }
+
+    public void setPublishedAt(String publishedAt) {
+        this.publishedAt = publishedAt;
+    }
+
+    public static Creator<News> getCREATOR() {
+        return CREATOR;
     }
 
     protected News(Parcel in) {
-        webTitle = in.readString();
-        pillarName = in.readString();
-        webPublicationDate = in.readString();
-        webUrl = in.readString();
+        title = in.readString();
+        url = in.readString();
+        publishedAt = in.readString();
     }
 
     public static final Creator<News> CREATOR = new Creator<News>() {
@@ -33,38 +59,6 @@ public class News implements Parcelable {
         }
     };
 
-    public String getWebTitle() {
-        return webTitle;
-    }
-
-    public void setWebTitle(String webTitle) {
-        this.webTitle = webTitle;
-    }
-
-    public String getPillarName() {
-        return pillarName;
-    }
-
-    public void setPillarName(String pillarName) {
-        this.pillarName = pillarName;
-    }
-
-    public String getWebPublicationDate() {
-        return webPublicationDate;
-    }
-
-    public void setWebPublicationDate(String publicationDate) {
-        this.webPublicationDate = publicationDate;
-    }
-
-    public String getWebUrl() {
-        return webUrl;
-    }
-
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -72,9 +66,8 @@ public class News implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(webTitle);
-        dest.writeString(pillarName);
-        dest.writeString(webPublicationDate);
-        dest.writeString(webUrl);
+        dest.writeString(title);
+        dest.writeString(url);
+        dest.writeString(publishedAt);
     }
 }

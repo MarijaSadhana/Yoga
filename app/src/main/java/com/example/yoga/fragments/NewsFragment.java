@@ -40,7 +40,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
 
     RecyclerView recyclerView;
     ImageView imageView;
-    TextView category, date;
+    TextView date;
     NewsAdapter newsAdapter;
     ArrayList news = new ArrayList<>();
     Gson gson;
@@ -66,7 +66,6 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
         super.onViewCreated(view, savedInstanceState);
         gson = new Gson();
         imageView = view.findViewById(R.id.news_logo);
-        category = view.findViewById(R.id.textCategory);
         date = view.findViewById(R.id.textDatePublished);
         progressBar = view.findViewById(R.id.progressBar);
         recyclerView = view.findViewById(R.id.recycler_view_news);
@@ -87,7 +86,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
         });
 
         OkHttpClient client = new OkHttpClient();
-        String url = "https://content.guardianapis.com/search?&q=yoga%20ANDmeditation&api-key=d1191012-4836-4034-ab96-0ba3efed67af";
+        String url = "https://newsapi.org/v2/everything?q=yoga&apiKey=2dccbc8dff684538bd586569a88b78b6";
         Request request = new Request.Builder().url(url).get().build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -101,8 +100,8 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                 if (response.isSuccessful()) {
                     String jsonString = response.body().string();
                     NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
-                    for (int i = 0; i < newsResponse.getResponse().getPageSize(); i++) {
-                        news.add(i, newsResponse.getResponse().getResults().get(i));
+                    for (int i = 0; i < newsResponse.getTotalResults(); i++) {
+                        news.add(i, newsResponse.getArticles().get(i));
                     }
 
                     if (getActivity() != null) {
