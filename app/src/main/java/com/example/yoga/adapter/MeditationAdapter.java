@@ -1,13 +1,19 @@
 package com.example.yoga.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yoga.R;
@@ -39,13 +45,52 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MeditationViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MeditationViewHolder holder, int position) {
 
-        Meditation meditation = meditations.get(position);
+        final Meditation meditation = meditations.get(position);
         int imageId = context.getResources().getIdentifier(meditation.getMeditationImage(),"drawable", context.getPackageName());
         holder.image.setImageResource(imageId);
         holder.title.setText(meditation.getMeditationTitle());
         holder.duration.setText(meditation.getDuration());
+
+        Drawable isFavorite;
+        if(readState(meditation.getMeditationTitle())){
+            isFavorite = ContextCompat.getDrawable(context,R.drawable.ic_favorite_purple);
+        }else{
+            isFavorite = ContextCompat.getDrawable(context, R.drawable.ic_favorite_blank);
+        }
+        holder.toggleButton.setBackgroundDrawable(isFavorite);
+
+        holder.toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                boolean isFavourite = readState(meditation.getMeditationTitle());
+                if (!isFavourite) {
+                    holder.toggleButton.setBackgroundDrawable(ContextCompat.getDrawable(context,R.drawable.ic_favorite_purple));
+                    Toast.makeText(context,"Додадено во омилени",Toast.LENGTH_SHORT).show();
+                    isFavourite = true;
+                    saveState(isFavourite);
+                }
+                else {
+                    holder.toggleButton.setBackgroundDrawable(ContextCompat.getDrawable(context,R.drawable.ic_favorite_blank));
+                    Toast.makeText(context,"Отстрането од омилени",Toast.LENGTH_SHORT).show();
+                    isFavourite = false;
+                    saveState(isFavourite);
+                }
+            }
+            private void saveState(boolean isFavorite) {
+                SharedPreferences sharedPreferences = context.getSharedPreferences("Favorite", Context.MODE_PRIVATE);
+                SharedPreferences.Editor sharedPreferencesEdit = sharedPreferences.edit();
+                sharedPreferencesEdit.putBoolean(meditation.getMeditationTitle(), isFavorite);
+                sharedPreferencesEdit.apply();
+            }
+
+        });
+    }
+
+    private boolean readState(String meditationTitle) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Favorite",Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(meditationTitle, false);
     }
 
     @Override
@@ -57,12 +102,16 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
 
         TextView title, duration;
         ImageView image;
+        ToggleButton toggleButton;
 
         public MeditationViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title_meditation);
             duration = itemView.findViewById(R.id.duration_numbers_medit);
             image = itemView.findViewById(R.id.audio_meditation);
+            toggleButton = itemView.findViewById(R.id.favMedit);
+            toggleButton.setChecked(false);
+            toggleButton.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.ic_favorite_blank));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

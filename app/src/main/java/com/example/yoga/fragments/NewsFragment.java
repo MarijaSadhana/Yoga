@@ -3,6 +3,7 @@ package com.example.yoga.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -23,11 +24,22 @@ import com.example.yoga.R;
 import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
 import com.example.yoga.interfaces.OnNewsClickListener;
+import com.example.yoga.model.Articles;
+import com.example.yoga.model.News;
 import com.example.yoga.model.NewsResponse;
 import com.google.gson.Gson;
+
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
+
+import javax.security.auth.callback.Callback;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -42,11 +54,16 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
     ImageView imageView;
     TextView date;
     NewsAdapter newsAdapter;
-    ArrayList news = new ArrayList<>();
+    ArrayList<Articles> news = new ArrayList<>();
     Gson gson;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
-    boolean isLoading = false;
+    LinearLayoutManager linearLayoutManager;
+    OkHttpClient client = new OkHttpClient();
+    final String url = "https://newsapi.org/v2/everything?q=yoga&apiKey=2dccbc8dff684538bd586569a88b78b6";
+    Boolean loading = true;
+    int page = 1;
+    int visibleItemCount, totalItemCount, pastVisibleItems;
 
     public NewsFragment() {}
 
@@ -72,8 +89,6 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getActivity(), news, this);
         recyclerView.setAdapter(newsAdapter);
-//        populateData();
-        initScrollListener();
 
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -85,8 +100,8 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
             }
         });
 
-        OkHttpClient client = new OkHttpClient();
-        String url = "https://newsapi.org/v2/everything?q=yoga&apiKey=2dccbc8dff684538bd586569a88b78b6";
+//        OkHttpClient client = new OkHttpClient();
+//        final String url = "https://newsapi.org/v2/everything?q=yoga&apiKey=2dccbc8dff684538bd586569a88b78b6";
         Request request = new Request.Builder().url(url).get().build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -98,9 +113,9 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    String jsonString = response.body().string();
+                    String jsonString = Objects.requireNonNull(response.body()).string();
                     NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
-                    for (int i = 0; i < newsResponse.getTotalResults(); i++) {
+                    for (int i = 0; i < newsResponse.getArticles().size(); i++) {
                         news.add(i, newsResponse.getArticles().get(i));
                     }
 
@@ -116,6 +131,63 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                 }
             }
         });
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0)
+                {
+                    visibleItemCount = linearLayoutManager.getChildCount();   // =0  llmanager = null ??????
+                    totalItemCount = linearLayoutManager.getItemCount();
+                    pastVisibleItems = linearLayoutManager.findFirstVisibleItemPosition();
+
+                    if (!loading) {
+                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
+                            loading = true;
+                            //page = page+1;
+//                            loadMore();
+                        }
+                    }
+                }
+            }
+
+            private void loadMore() {
+                Request request = new Request.Builder().url(url).get().build();
+
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                        if (response.isSuccessful()) {
+                            String jsonString = Objects.requireNonNull(response.body()).string();
+                            NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
+                            news.addAll(newsResponse.getArticles());
+
+                            if (getActivity() != null) {
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        newsAdapter.notifyDataSetChanged();
+                                        progressBar.setVisibility(View.GONE);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+
+            }
+        });
+
     }
 
     private void myUpdateOperation() {
@@ -137,61 +209,6 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-//    private void populateData() {
-//        int i = 0;
-//        while (i < 10) {
-//            news.add("News " + i);
-//            i++;
-//        }
-//    }
-
-    private void initScrollListener() {
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-                if (!isLoading) {
-                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == news.size() - 1) {
-                        //na krajot od listata
-                        loadMore();
-                        isLoading = true;
-                    }
-                }
-            }
-        });
-    }
-
-    private void loadMore() {
-        news.add(null);
-        newsAdapter.notifyItemInserted(news.size() - 1);
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                news.remove(news.size() - 1);
-                int scrollPosition = news.size();
-                newsAdapter.notifyItemRemoved(scrollPosition);
-                int currentSize = scrollPosition;
-                int nextLimit = currentSize + 10;
-
-                while (currentSize - 1 < nextLimit) {
-                    news.add("News " + currentSize);
-                    currentSize++;
-                }
-
-                newsAdapter.notifyDataSetChanged();
-                isLoading = false;
-            }
-        }, 2000);
-    }
 
     @Override
     public void onNewsClick(String url) {

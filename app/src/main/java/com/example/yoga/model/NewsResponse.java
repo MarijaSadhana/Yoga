@@ -14,6 +14,8 @@ public class NewsResponse {
         this.articles = articles;
     }
 
+    public NewsResponse() {}
+
     public String getStatus() {
         return status;
     }

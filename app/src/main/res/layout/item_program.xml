@@ -38,14 +38,16 @@
             android:layout_marginStart="@dimen/card_margin_start"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-        <ImageView
-            android:id="@+id/favImg"
+        <ToggleButton
+            android:id="@+id/favToggle"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:paddingTop="@dimen/card_padding_top"
             android:layout_marginEnd="@dimen/card_margin_end"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_favorite_blank"/>
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/ic_favorite_blank"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

@@ -13,6 +13,8 @@ public class News implements Parcelable {
         this.publishedAt = publishedAt;
     }
 
+    public News() {}
+
     public String getTitle() {
         return title;
     }
@@ -41,7 +43,7 @@ public class News implements Parcelable {
         return CREATOR;
     }
 
-    protected News(Parcel in) {
+    public News(Parcel in) {
         title = in.readString();
         url = in.readString();
         publishedAt = in.readString();
