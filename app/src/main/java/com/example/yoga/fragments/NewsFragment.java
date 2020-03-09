@@ -2,8 +2,6 @@ package com.example.yoga.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -25,22 +23,15 @@ import com.example.yoga.activity.WebNewsActivity;
 import com.example.yoga.adapter.NewsAdapter;
 import com.example.yoga.interfaces.OnNewsClickListener;
 import com.example.yoga.model.Articles;
-import com.example.yoga.model.News;
 import com.example.yoga.model.NewsResponse;
 import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import javax.security.auth.callback.Callback;
-
-import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -106,12 +97,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
 
         client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            public void onResponse(@NotNull okhttp3.Call call, @NotNull Response response) throws IOException {
                 if (response.isSuccessful()) {
                     String jsonString = Objects.requireNonNull(response.body()).string();
                     NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
@@ -129,6 +115,11 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                         });
                     }
                 }
+            }
+
+            @Override
+            public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
+                e.printStackTrace();
             }
         });
 
@@ -150,7 +141,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                         if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
                             loading = true;
                             //page = page+1;
-//                            loadMore();
+                            loadMore();
                         }
                     }
                 }
@@ -161,12 +152,7 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
 
                 client.newCall(request).enqueue(new Callback() {
                     @Override
-                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    @Override
-                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                    public void onResponse(@NotNull okhttp3.Call call, @NotNull Response response) throws IOException {
                         if (response.isSuccessful()) {
                             String jsonString = Objects.requireNonNull(response.body()).string();
                             NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
@@ -183,11 +169,14 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                             }
                         }
                     }
-                });
 
+                    @Override
+                    public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
         });
-
     }
 
     private void myUpdateOperation() {
