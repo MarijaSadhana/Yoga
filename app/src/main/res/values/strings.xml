@@ -49,5 +49,8 @@
     <string name="RemindMe">Време за јога</string>
 
     <string name="menu_refresh">refresh</string>
+    <string name="setTheAlarm">Немате поставено аларм</string>
+    <string name="openTimePicker">Постави аларм</string>
+    <string name="cancelAlarm">Откажи аларм</string>
 
 </resources>

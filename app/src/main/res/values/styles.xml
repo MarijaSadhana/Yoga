@@ -5,6 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:timePickerStyle">@style/TimePickerStyle</item>
     </style>
 
     <style name="MenuItemText">
@@ -24,9 +25,17 @@
         <item name="android:background">#79999999</item>
     </style>
 
-    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@color/purple</item>
-        <item name="colorControlNormal">#ffffff</item>
+<!--    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">-->
+<!--        <item name="colorAccent">@color/purple</item>-->
+<!--        <item name="colorControlNormal">#ffffff</item>-->
+<!--    </style>-->
+
+    <style name="TimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="android:numbersTextColor">@color/textColorPurple</item>
+        <item name="android:colorAccent">@color/textColorPurple</item>
+        <item name="android:numbersBackgroundColor">@color/backgroundWhite</item>
+        <item name="android:numbersSelectorColor">#2C000000</item>
+        <item name="android:headerBackground">@color/backgroundPurple</item>
     </style>
 
     <style name="settings_item_layout">
@@ -66,11 +75,6 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">30dp</item>
-    </style>
-
-    <style name="switch_theme">
-        <item name="thumbTint">@color/switch_color</item>
-        <item name="trackTint">@color/track_color</item>
     </style>
 
 </resources>

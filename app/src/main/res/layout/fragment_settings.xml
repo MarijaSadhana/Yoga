@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="80dp"
+        android:layout_marginStart="@dimen/card_margin_start"
         android:orientation="vertical">
 
         <LinearLayout
@@ -19,7 +20,8 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal"
             android:background="@drawable/select_background_color"
-            android:onClick="setAlarm">
+            android:onClick="onClick"
+            tools:ignore="OnClick">
 
             <ImageView
                 android:id="@+id/alarm_icon"

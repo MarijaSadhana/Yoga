@@ -49,12 +49,10 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
     Gson gson;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
-    LinearLayoutManager linearLayoutManager;
-    OkHttpClient client = new OkHttpClient();
-    final String url = "https://newsapi.org/v2/everything?q=yoga&apiKey=2dccbc8dff684538bd586569a88b78b6";
-    Boolean loading = true;
-    int page = 1;
-    int visibleItemCount, totalItemCount, pastVisibleItems;
+//    LinearLayoutManager linearLayoutManager;
+//    Boolean loading = true;
+//    int page = 1;
+//    int visibleItemCount, totalItemCount, pastVisibleItems;
 
     public NewsFragment() {}
 
@@ -91,8 +89,8 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
             }
         });
 
-//        OkHttpClient client = new OkHttpClient();
-//        final String url = "https://newsapi.org/v2/everything?q=yoga&apiKey=2dccbc8dff684538bd586569a88b78b6";
+        OkHttpClient client = new OkHttpClient();
+        final String url = "https://newsapi.org/v2/everything?q=yoga&apiKey=2dccbc8dff684538bd586569a88b78b6";
         Request request = new Request.Builder().url(url).get().build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -129,53 +127,39 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
                 super.onScrollStateChanged(recyclerView, newState);
             }
 
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                if (dy > 0)
-                {
-                    visibleItemCount = linearLayoutManager.getChildCount();   // =0  llmanager = null ??????
-                    totalItemCount = linearLayoutManager.getItemCount();
-                    pastVisibleItems = linearLayoutManager.findFirstVisibleItemPosition();
-
-                    if (!loading) {
-                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
-                            loading = true;
+//            @Override
+//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+//                if (dy > 0)
+//                {
+//                    visibleItemCount = linearLayoutManager.getChildCount();   // =0  llmanager = null ??????
+//                    totalItemCount = linearLayoutManager.getItemCount();
+//                    pastVisibleItems = linearLayoutManager.findFirstVisibleItemPosition();
+//
+//                    if (!loading) {
+//                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
+//                            loading = true;
                             //page = page+1;
-                            loadMore();
-                        }
-                    }
-                }
-            }
+////                            loadMore();
+//                        }
+//                    }
+//                }
+//            }
 
-            private void loadMore() {
-                Request request = new Request.Builder().url(url).get().build();
+//            private void loadMore() {
+//                Request request = new Request.Builder().url(url).get().build();
 
-                client.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onResponse(@NotNull okhttp3.Call call, @NotNull Response response) throws IOException {
-                        if (response.isSuccessful()) {
-                            String jsonString = Objects.requireNonNull(response.body()).string();
-                            NewsResponse newsResponse = gson.fromJson(jsonString, NewsResponse.class);
-                            news.addAll(newsResponse.getArticles());
+//                client.newCall(request).enqueue(new Callback() {
+//                    @Override
+//                    public void onResponse(@NotNull okhttp3.Call call, @NotNull Response response) throws IOException {
+//
+//                    }
 
-                            if (getActivity() != null) {
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        newsAdapter.notifyDataSetChanged();
-                                        progressBar.setVisibility(View.GONE);
-                                    }
-                                });
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
+//                    @Override
+//                    public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                });
+//            }
         });
     }
 
@@ -197,7 +181,6 @@ public class NewsFragment extends Fragment implements OnNewsClickListener {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onNewsClick(String url) {
