@@ -1,133 +1,97 @@
 package com.example.yoga.activity;
 
-
-import android.annotation.TargetApi;
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.ClipboardManager;
-import android.os.Build;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.Switch;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.yoga.R;
-import com.example.yoga.db.LocalData;
+import com.example.yoga.fragments.TimePickerFragment;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.text.DateFormat;
+import java.util.Calendar;
 
-public class SetAlarm extends AppCompatActivity {
+public class SetAlarm extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
-    String TAG = "RemindMe";
-    LocalData localData;
-    Switch reminderSwitch;
-    TextView tvTime;
-    LinearLayout ll_set_time;
-    int hour, min;
-    ClipboardManager myClipboard;
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_alarm);
 
-        localData = new LocalData(getApplicationContext());
-        myClipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        ll_set_time = (LinearLayout) findViewById(R.id.ll_set_time);
-        tvTime = (TextView) findViewById(R.id.tv_reminder_time_desc);
+        mTextView = findViewById(R.id.textSetTheAlarm);
 
-        reminderSwitch = (Switch) findViewById(R.id.timerSwitch);
+        ImageView imageView = findViewById(R.id.imgTimepicker);
 
-        hour = localData.get_hour();
-        min = localData.get_min();
-
-        tvTime.setText(getFormatedTime(hour, min));
-        reminderSwitch.setChecked(localData.getReminderStatus());
-
-        if (!localData.getReminderStatus())
-            ll_set_time.setAlpha(0.4f);
-
-        reminderSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                localData.setReminderStatus(isChecked);
-                if (isChecked) {
-                    Log.d(TAG, "onCheckedChanged: true");
-                    NotificationScheduler.setReminder(SetAlarm.this, localData.get_hour(), localData.get_min());
-                    ll_set_time.setAlpha(1f);
-                } else {
-                    Log.d(TAG, "onCheckedChanged: false");
-                    NotificationScheduler.cancelReminder(SetAlarm.this);
-                    ll_set_time.setAlpha(0.4f);
+            public void onClick(View v) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "time picker");
+            }
+        });
+
+        Button buttonCancelAlarm = findViewById(R.id.button_cancel);
+        buttonCancelAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelAlarm();
+            }
+
+            @SuppressLint("SetTextI18n")
+            private void cancelAlarm() {
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                Intent intent = new Intent(getBaseContext(), AlertReceiver.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 1, intent, 0);
+                if (alarmManager != null) {
+                    alarmManager.cancel(pendingIntent);
                 }
-            }
-        });
-
-        ll_set_time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (localData.getReminderStatus())
-                    showTimePickerDialog(localData.get_hour(), localData.get_min());
+                mTextView.setText("Алармот е деактивиран");
             }
         });
     }
 
-    private void showTimePickerDialog(int h, int m) {
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        c.set(Calendar.MINUTE, minute);
+        c.set(Calendar.SECOND, 0);
 
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.timepicker_header, null);
-
-        TimePickerDialog builder = new TimePickerDialog(this, R.style.DialogTheme,
-                new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hour, int min) {
-                        Log.d(TAG, "onTimeSet: hour " + hour);
-                        Log.d(TAG, "onTimeSet: min " + min);
-                        localData.set_hour(hour);
-                        localData.set_min(min);
-                        tvTime.setText(getFormatedTime(hour, min));
-                        NotificationScheduler.setReminder(SetAlarm.this, localData.get_hour(), localData.get_min());
-
-                    }
-                }, h, m, false);
-
-        builder.setCustomTitle(view);
-        builder.show();
+        updateTimeText(c);
+        startAlarm(c);
     }
 
-    public String getFormatedTime(int h, int m) {
-        final String OLD_FORMAT = "HH:mm";
-        final String NEW_FORMAT = "hh:mm a";
+    private void startAlarm(Calendar c) {
 
-        String oldDateString = h + ":" + m;
-        String newDateString = "";
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
 
-        try{
-            SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT, getCurrentLocale());
-            Date d = sdf.parse(oldDateString);
-            sdf.applyPattern(NEW_FORMAT);
-            newDateString = sdf.format(d);
-        }catch (Exception e){
-            e.printStackTrace();
+        if (c.before(Calendar.getInstance())) {
+            c.add(Calendar.DATE, 1);
         }
-
-        return newDateString;
+        if (alarmManager != null) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+        }
     }
 
-    @TargetApi(Build.VERSION_CODES.N)
-    public Locale getCurrentLocale() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return getResources().getConfiguration().getLocales().get(0);
-        } else {
-            return getResources().getConfiguration().locale;
-        }
+    private void updateTimeText(Calendar c) {
+
+        String timeText = "Време за јога: ";
+        timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
+        mTextView.setText(timeText);
     }
 }

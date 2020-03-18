@@ -40,7 +40,7 @@ public class SplashActivity extends Activity {
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
-                mediaPlayer.setVolume(0,0);
+                mediaPlayer.setVolume(0,1);
             }
         });
     }
