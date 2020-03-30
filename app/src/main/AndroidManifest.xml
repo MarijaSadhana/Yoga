@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sadhana.yoga">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,8 +13,9 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.sadhana.yoga.activity.SetAlarm"></activity>
+        android:theme="@style/AppTheme"
+        tools:targetApi="n">
+        <activity android:name="com.sadhana.yoga.activity.SetAlarm" />
         <activity android:name="com.sadhana.yoga.activity.RegisterActivity" />
         <activity android:name="com.sadhana.yoga.activity.LoginActivity" />
         <activity android:name="com.sadhana.yoga.activity.WebNewsActivity" />
