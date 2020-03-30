@@ -61,8 +61,8 @@ public class SettingsFragment extends Fragment {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 String body = "Јога";
-//                String subject = "link od aplikacijata";
-//                shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                String subject = "https://play.google.com/store/apps/details?id=com.sadhana.yoga";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, body);
                 startActivity(Intent.createChooser(shareIntent, "Сподели преку"));
             }
