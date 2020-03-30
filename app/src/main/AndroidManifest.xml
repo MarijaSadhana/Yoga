@@ -22,14 +22,16 @@
         <activity android:name=".activity.DetailsAsana" />
         <activity android:name=".activity.DetailsMeditation" />
         <activity android:name=".activity.DetailsPranayama" />
-        <activity android:name=".activity.SplashActivity"/>
-        <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".activity.SplashActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+
+        <activity android:name=".activity.MainActivity"/>
 
         <receiver android:name=".activity.AlertReceiver" />
     </application>
