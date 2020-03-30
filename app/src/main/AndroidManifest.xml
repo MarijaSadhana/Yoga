@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.yoga">
+    package="com.sadhana.yoga">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -13,16 +13,16 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SetAlarm"></activity>
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.WebNewsActivity" />
-        <activity android:name=".activity.DetailProgram" />
-        <activity android:name=".activity.AboutUsActivity" />
-        <activity android:name=".activity.DetailsAsana" />
-        <activity android:name=".activity.DetailsMeditation" />
-        <activity android:name=".activity.DetailsPranayama" />
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name="com.sadhana.yoga.activity.SetAlarm"></activity>
+        <activity android:name="com.sadhana.yoga.activity.RegisterActivity" />
+        <activity android:name="com.sadhana.yoga.activity.LoginActivity" />
+        <activity android:name="com.sadhana.yoga.activity.WebNewsActivity" />
+        <activity android:name="com.sadhana.yoga.activity.DetailProgram" />
+        <activity android:name="com.sadhana.yoga.activity.AboutUsActivity" />
+        <activity android:name="com.sadhana.yoga.activity.DetailsAsana" />
+        <activity android:name="com.sadhana.yoga.activity.DetailsMeditation" />
+        <activity android:name="com.sadhana.yoga.activity.DetailsPranayama" />
+        <activity android:name="com.sadhana.yoga.activity.SplashActivity">
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -31,9 +31,9 @@
         </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MainActivity"/>
+        <activity android:name="com.sadhana.yoga.activity.MainActivity"/>
 
-        <receiver android:name=".activity.AlertReceiver" />
+        <receiver android:name="com.sadhana.yoga.activity.AlertReceiver" />
     </application>
 
 </manifest>
