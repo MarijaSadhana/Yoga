@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.sadhana.yoga.BuildConfig;
 import com.sadhana.yoga.R;
 import com.sadhana.yoga.activity.AboutUsActivity;
 import com.sadhana.yoga.activity.SetAlarm;
@@ -69,10 +70,10 @@ public class SettingsFragment extends Fragment {
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                String body = "Јога";
-                String subject = "https://play.google.com/store/apps/details?id=com.sadhana.yoga";
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, body);
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Јога");
+                String shareMessage= "Ви ја препорачувам апликацијата за јога\n\n";
+                shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                 startActivity(Intent.createChooser(shareIntent, "Сподели преку"));
             }
         });
