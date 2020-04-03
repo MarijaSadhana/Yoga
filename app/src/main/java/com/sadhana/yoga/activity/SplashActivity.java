@@ -47,26 +47,26 @@ public class SplashActivity extends Activity {
 
     private void startNextActivity() {
 
-        Intent i = new Intent(SplashActivity.this, MainActivity.class);
-            startActivity(i);
-            finish();
-
-
-
-//        sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
-//
-//        email = sharedPreferences.getString("email", null);
-//        password = sharedPreferences.getString("password", null);
-//
-//        if (sharedPreferences.getBoolean("isLogedIn", false)) {
-//            Intent j = new Intent(SplashActivity.this, MainActivity.class);
-//            startActivity(j);
-//            finish();
-//        } else {
-//            Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+//        Intent i = new Intent(SplashActivity.this, MainActivity.class);
 //            startActivity(i);
 //            finish();
-//        }
+
+
+
+        sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+
+        email = sharedPreferences.getString("email", null);
+        password = sharedPreferences.getString("password", null);
+
+        if (sharedPreferences.getBoolean("isLogedIn", false)) {
+            Intent j = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(j);
+            finish();
+        } else {
+            Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 }
 
