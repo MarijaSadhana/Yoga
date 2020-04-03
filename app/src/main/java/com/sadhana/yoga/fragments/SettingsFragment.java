@@ -41,11 +41,20 @@ public class SettingsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         alarmLayout = view.findViewById(R.id.layout_alarm);
+//        favoriteLayout = view.findViewById(R.id.layout_favorite);
         shareLayout = view.findViewById(R.id.layout_share);
         contactLayout = view.findViewById(R.id.layout_contact);
         aboutUsLayout = view.findViewById(R.id.layout_aboutUs);
         fbImage = view.findViewById(R.id.fb_icon);
         instaImage = view.findViewById(R.id.insta_icon);
+
+//        favoriteLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent favIntent = new Intent(getActivity(), FavoriteActivity.class);
+//                startActivity(favIntent);
+//            }
+//        });
 
         alarmLayout.setOnClickListener(new View.OnClickListener() {
             @Override

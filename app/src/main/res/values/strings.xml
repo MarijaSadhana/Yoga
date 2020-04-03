@@ -23,6 +23,7 @@
     \n\nОсновач на Јога центар Садана е Марија, сертифициран јога учител од страна на Yoga Alliance International од Индија (Certified Master Yoga Teacher 500 Hours). Марија е посветена на јогата од 2004 година,
         а од 2006 година ја започнува својата обука за јога инструктор. Одржува курсеви по Интегрална и Јин јога со групи или индивидуалци од различни нивоа. </string>
     <string name="alarm">Аларм</string>
+    <string name="favorite">Омилени активности</string>
     <string name="share">Сподели</string>
     <string name="contact">Контакт</string>
     <string name="aboutUs">За нас</string>
@@ -52,5 +53,6 @@
     <string name="setTheAlarm">Немате поставено аларм</string>
     <string name="openTimePicker">Постави аларм</string>
     <string name="cancelAlarm">Откажи аларм</string>
+    <string name="addToFavorite">Додај во омилени</string>
 
 </resources>

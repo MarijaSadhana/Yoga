@@ -9,9 +9,42 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="@dimen/card_margin_start"
         android:orientation="vertical">
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout_favorite"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:background="@drawable/select_background_color"-->
+<!--            android:onClick="onClick"-->
+<!--            tools:ignore="OnClick">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/fav_icon"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:src="@drawable/ic_favorite_purple"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/fav_text"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/favorite"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/textColorPurple"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:paddingRight="10dp"/>-->
+
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/layout_alarm"
@@ -30,7 +63,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/alarm_icon"/>
+                android:src="@drawable/ic_alarm_purple"/>
 
             <TextView
                 android:id="@+id/alarm_text"
@@ -38,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/alarm"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/textColorPurple"
                 android:textSize="16sp"
                 android:layout_gravity="center"
                 android:paddingLeft="10dp"
@@ -63,7 +96,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/share_icon"/>
+                android:src="@drawable/ic_share_purple"/>
 
             <TextView
                 android:id="@+id/share_text"
@@ -71,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/share"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/textColorPurple"
                 android:textSize="16sp"
                 android:layout_gravity="center"
                 android:paddingLeft="10dp"
@@ -96,7 +129,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/contact_icon"/>
+                android:src="@drawable/ic_contact_purple"/>
 
             <TextView
                 android:id="@+id/contact_text"
@@ -104,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/contact"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/textColorPurple"
                 android:textSize="16sp"
                 android:layout_gravity="center"
                 android:paddingLeft="10dp"
@@ -135,13 +168,13 @@
                 android:id="@+id/aboutUs_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/aboutUs"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="16sp"
                 android:layout_gravity="center"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"/>
+                android:paddingRight="10dp"
+                android:text="@string/aboutUs"
+                android:textColor="@color/textColorPurple"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

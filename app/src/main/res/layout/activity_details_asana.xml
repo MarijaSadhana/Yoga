@@ -1,104 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".activity.DetailsAsana">
 
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay.">
 
-        <ImageView
-            android:id="@+id/asana_cover_image"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="fitXY"/>
-
-        <ImageView
-            android:id="@+id/backArrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_arrow"
-            android:layout_margin="20dp"
-            android:elevation="5dp"
-            android:onClick="onBackClick"
-            android:foreground="?attr/selectableItemBackground"/>
-
-    </RelativeLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="40dp">
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-           <TextView
-                android:id="@+id/asana_title"
+            <ImageView
+                android:id="@+id/asana_cover_image"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="@dimen/card_padding_top"
-                android:paddingStart="@dimen/card_padding_start"
-                android:paddingEnd="@dimen/card_padding_end"
-                android:paddingBottom="@dimen/card_padding_bottom"
-                android:textColor="@color/textColorPurple"
-                android:background="@color/backroundText"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:text="Наслов"/>
+                android:layout_height="300dp"
+                android:scaleType="fitXY"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"/>
 
-            <TextView
-                android:id="@+id/asana_sanskrit_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="@dimen/card_padding_start"
-                android:paddingEnd="@dimen/card_padding_end"
-                android:paddingBottom="@dimen/card_padding_bottom"
-                android:paddingTop="@dimen/card_padding_top"
-                android:textColor="@color/textColorGray"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                android:textAllCaps="true"
-                android:gravity="center"
-                android:text="Санскрит наслов"/>
-
-            <TextView
-                android:id="@+id/izvedba"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/backArrow"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/backroundText"
-                android:gravity="start"
-                android:paddingStart="@dimen/card_padding_start"
-                android:paddingTop="@dimen/card_padding_top"
-                android:paddingEnd="@dimen/card_padding_end"
-                android:paddingBottom="@dimen/card_padding_bottom"
-                android:textColor="@color/textColorGray"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:text="Начин на изведба, бенефити и контраиндикации:"/>
+                android:src="@drawable/ic_back_arrow_white"
+                android:layout_margin="20dp"
+                android:elevation="5dp"
+                android:onClick="onBackClick"
+                android:foreground="?attr/selectableItemBackground"/>
 
-            <TextView
-                android:id="@+id/asana_details_text"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/card_padding_top"
-                android:paddingStart="@dimen/card_padding_start"
-                android:paddingEnd="@dimen/card_padding_end"
-                android:paddingBottom="20dp"
-                android:textColor="@color/textColorGray"
-                android:textSize="14sp"
-                android:text="Опис на начинот на изведување на асаната, опис на бенефитите од нејзината изведба и контраиндикациите"/>
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay." />
 
-        </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    </ScrollView>
+    <include layout="@layout/content_scrolling"/>
 
-</LinearLayout>
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="10dp"-->
+<!--        app:layout_anchor="@id/app_bar"-->
+<!--        android:backgroundTint="@color/transparent"-->
+<!--        app:borderWidth="0dp"-->
+<!--        app:layout_anchorGravity="bottom|end"-->
+<!--        android:src="@drawable/ic_video_purple" />-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

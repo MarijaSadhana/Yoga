@@ -32,4 +32,5 @@
     <dimen name="items_top_padding">4dp</dimen>
 
     <dimen name="timer_icon">25dp</dimen>
+    <dimen name="fav_toggle_dimens">30dp</dimen>
 </resources>

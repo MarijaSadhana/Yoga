@@ -6,13 +6,14 @@ import android.os.Parcelable;
 
 public class Asanas implements Parcelable {
 
-    String asanaName, sanskritName, asanaDetails, asanaCategory, asanaImages;
+    String asanaName, sanskritName, asanaDetails, asanaCategory, asanaImages, asanaVideo;
 
-    public Asanas(String asanaName, String sanskritName, String asanaDetails, String asanaImages, String asanaCategory) {
+    public Asanas(String asanaName, String sanskritName, String asanaDetails, String asanaImages, String asanaVideo, String asanaCategory) {
         this.asanaName = asanaName;
         this.sanskritName = sanskritName;
         this.asanaDetails = asanaDetails;
         this.asanaImages = asanaImages;
+        this.asanaVideo = asanaVideo;
         this.asanaCategory = asanaCategory;
     }
 
@@ -22,6 +23,7 @@ public class Asanas implements Parcelable {
         asanaDetails = in.readString();
         asanaCategory = in.readString();
         asanaImages = in.readString();
+        asanaVideo = in.readString();
     }
 
     public static final Creator<Asanas> CREATOR = new Creator<Asanas>() {
@@ -76,6 +78,18 @@ public class Asanas implements Parcelable {
         this.asanaCategory = asanaCategory;
     }
 
+    public String getAsanaVideo() {
+        return asanaVideo;
+    }
+
+    public void setAsanaVideo(String asanaVideo) {
+        this.asanaVideo = asanaVideo;
+    }
+
+    public static Creator<Asanas> getCREATOR() {
+        return CREATOR;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -88,6 +102,7 @@ public class Asanas implements Parcelable {
         dest.writeString(asanaDetails);
         dest.writeString(asanaCategory);
         dest.writeString(asanaImages);
+        dest.writeString(asanaVideo);
     }
 }
 
